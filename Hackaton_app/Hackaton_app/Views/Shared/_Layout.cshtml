@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -38,5 +38,19 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+<script>
+    $(document).ready(function () {
+        var audioElement = document.createElement('audio');
+
+        $('.t2s').mouseover(function () {
+            audioElement.pause();
+            console.log($(this).text());
+            audioElement.setAttribute('src', 'http://localhost:64341/home/Text2Speech?text=' + $(this).text());
+            audioElement.play();
+            console.log('start play');
+        });
+    });
+</script>
 </body>
 </html>

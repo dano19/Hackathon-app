@@ -7,3 +7,5 @@ Hackaton_app/bin/
 Hackaton_app/obj/
 Hackaton_app/Hackaton_app/obj/Debug/Hackaton_app.csproj.FileListAbsolute.txt
 Hackaton_app/.vs/config/applicationhost.config
+/Hackaton_app/Hackaton_app/obj/Debug
+/Hackaton_app/Hackaton_app/bin
