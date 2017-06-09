@@ -11,13 +11,13 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        height: 85vh;
+        height: 80vh;
         width: 100%;
         background-color: #060;
         color: #fff;
         text-align: center;
         text-shadow: 0 1px 3px rgba(0,0,0,.5);
-        padding-top: 350px;
+        padding-top: 250px;
     }
     .search-bar {
         max-width: 960px;
@@ -30,36 +30,35 @@
 
 <div class="city-image">
     
-    <div class="alert alert-info search-bar">
+<div class="alert alert-info search-bar">
+    <div class="row">
+        <h1 class="cover-heading">&nbsp;Find your place for No Limit Trip!</h1>
+    </div>
+    <br />
+    <form>
         <div class="row">
-            <h1 class="cover-heading">&nbsp;Find your place for No Limit Trip!</h1>
-        </div>
-        <br />
-            <form>
-                <div class="row">
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" placeholder="Localisation">
-                    </div>
-                    <div class="col-md-3">
-                        <select class="form-control">
-                            <option value="one">(venue type)</option>
-                            <option value="two">Two</option>
-                            <option value="three">Three</option>
-                            <option value="four">Four</option>
-                            <option value="five">Five</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <select class="form-control">
-                            <option value="one">(disorder type)</option>
-                            <option value="two">Two</option>
-                            <option value="three">Three</option>
-                            <option value="four">Four</option>
-                            <option value="five">Five</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-info"> Find </button>
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="Localization">
+            </div>
+            <div class="col-md-3">
+                <select class="form-control">
+                    @foreach (CommonLibrary.Database.Type item in ViewBag.types)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control">
+                    @foreach (CommonLibrary.Database.Disability item in ViewBag.disabilities)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info"> Find </button>
 
-           </div>
+        </div>
     </form>
+</div>
 </div>

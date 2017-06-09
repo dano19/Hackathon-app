@@ -143,6 +143,12 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\hotels\building-768505_1280.jpg" />
+    <Content Include="Content\hotels\hotel-389256_1280.jpg" />
+    <Content Include="Content\hotels\hotel-room-1447201_1280.jpg" />
+    <Content Include="Content\hotels\resort-918952_1280.jpg" />
+    <Content Include="Content\hotels\StockSnap_904EAD50B0.jpg" />
+    <Content Include="Content\hotels\water-165219_1280.jpg" />
     <Content Include="Content\Images\Gdansk.jpg" />
     <Content Include="Content\Images\NLT1-2.png" />
     <Content Include="Content\listview.css" />
@@ -274,14 +280,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Venues\Add.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Auth\ForgotPassword.cshtml" />
     <Content Include="Views\Venues\Venues.cshtml" />
     <Content Include="Views\Venues\Details.cshtml" />

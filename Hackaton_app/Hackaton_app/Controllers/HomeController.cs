@@ -14,17 +14,9 @@ namespace Hackaton_app.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.disabilities = CommonLibrary.Logic.Disability.GetList();
+            ViewBag.types = CommonLibrary.Logic.Type.GetList();
             return View();
-        }
-        
-        public ActionResult Login()
-        {
-            return View("Login");
-        }
-
-        public ActionResult Register()
-        {
-            return View("Register");
         }
 
         public async Task<ActionResult> Text2Speech(string text = "")
