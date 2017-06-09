@@ -2,32 +2,64 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <form method="post" action="@Url.Action("RenderVenues", "Venues")">
-        <div class="row">    
-            <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="Localisation">
-            </div>  
-            <div class="col-md-3">
-                <select class="form-control">
-                    <option value="one">One</option>
-                    <option value="two">Two</option>
-                    <option value="three">Three</option>
-                    <option value="four">Four</option>
-                    <option value="five">Five</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-control">
-                    <option value="one">One</option>
-                    <option value="two">Two</option>
-                    <option value="three">Three</option>
-                    <option value="four">Four</option>
-                    <option value="five">Five</option>
-                </select>
-            </div>
+<style>
+    .city-image {
+        background: url(/Content/Images/Gdansk.jpg) no-repeat top center fixed;
+        
 
-                <button type="submit" class="btn btn-info" > Search </button>
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 85vh;
+        width: 100%;
+        background-color: #060;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0,0,0,.5);
+        padding-top: 350px;
+    }
+    .search-bar {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+</style>
+
+
+<div class="city-image">
+    
+    <div class="alert alert-info search-bar">
+        <div class="row">
+            <h1 class="cover-heading">&nbsp;Find your place for No Limit Trip!</h1>
+        </div>
+        <br />
+            <form>
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" placeholder="Localisation">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control">
+                            <option value="one">(venue type)</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                            <option value="four">Four</option>
+                            <option value="five">Five</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control">
+                            <option value="one">(disorder type)</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                            <option value="four">Four</option>
+                            <option value="five">Five</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info"> Find </button>
+
            </div>
     </form>
 </div>

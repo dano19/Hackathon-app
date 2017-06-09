@@ -12,11 +12,11 @@
                 <form method="post" action="@Url.Action("Login", "Auth")">
                     <div class="input-group">
                         <span class="input-group-addon" style="width: 30%">Email</span>
-                        <input type="text" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" required placeholder="Email">
                     </div>
                     <div class="input-group" style="margin-top: 5px;">
                         <span class="input-group-addon" style="width: 30%">Password</span>
-                        <input type="text" class="form-control" placeholder="Password">
+                        <input type="text" class="form-control" required placeholder="Password">
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -32,7 +32,6 @@
                             <a href="@Url.Action("Register", "Auth")" class="btn btn-info">Create a Travel account</a>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

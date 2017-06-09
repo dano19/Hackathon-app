@@ -2,70 +2,57 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
-<form method="post" action="#">
-    <div class="form-group">
-        <label for="formGroupInputLarge1" class="col-sm-2 control-label">E-mail:</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control" name="mail" placeholder="E-mail" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="formGroupInputLarge1" class="col-sm-2 control-label">Password:</label>
-        <div class="col-md-10">
-            <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" onfocus="validate();" onchange="validate();" required>
-        </div>
-    </div>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Register</h3>
+            </div>
+            <div class="card-block">
+                <form method="post" id="myForm" action="@Url.Action("Register", "Auth")">
+                    <div id='err_message' class='text-center alert alert-danger' style='color:red;margin-bottom: 20px; display: none;'>Passwords needs to match.</div>
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width: 30%">Email</span>
+                        <input type="email" class="form-control" name="email" required placeholder="Email">
+                    </div>
+                    <div class="input-group" style="margin-top: 5px;">
+                        <span class="input-group-addon" style="width: 30%">Password</span>
+                        <input type="text" class="form-control" id="password" name="password" required placeholder="Password">
+                    </div>
+                    <div class="input-group" style="margin-top: 5px;">
+                        <span class="input-group-addon" style="width: 30%">Confirm password</span>
+                        <input type="text" class="form-control" id="passwordConfirm" name="confirmPassword" required placeholder="Confirm password">
+                    </div>
 
-    <div class="form-group">
-        <label for="formGroupInputLarge1" class="col-sm-2 control-label">Re-Password:</label>
-        <div class="col-md-10">
-            <input type="password" class="form-control" name="RePass" id="pass2"placeholder="Re-Password" onfocus="validate();" onchange="validate();" required>
-            <div class="alert alert-danger" id="lblRePassword">
-                <label id="RePassword">Wrong password</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button style="margin-top: 5px;" type="submit" class="btn btn-success float-right">Register</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="@Url.Action("ForgotPassword", "Auth")" class="btn btn-info">Forgot your password?</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="@Url.Action("Login", "Auth")" class="btn btn-info">Login to Travel account</a>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
-
-
-
-    <div class="form-group">
-        <label for="formGroupInputLarge1" class="col-sm-2 control-label">First Name:</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control" name="fName" placeholder="First Name" required>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="formGroupInputLarge1" class="col-sm-2 control-label">Last Name:</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control" name="lName" placeholder="Last name" required>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
-            <button style="margin-top: 5px;" type="button" class="btn btn-success">Register</button>
-        </div>
-    </div>
-
-
-</form>
-
+</div>
+<script src="~/Scripts/jquery-3.1.1.js"></script>
 <script>
-
-    document.getElementById("lblRePassword").style.display = 'none';
-
-    function validate() {
-
-        var passVal = document.getElementById("pass").value;
-        var repassVal = document.getElementById("pass2").value;
-
-        if (passVal == repassVal) {
-            document.getElementById("lblRePassword").style.display = "none";
+    $("#myForm").submit(function (event) {
+        $("#err_message").hide();
+        event.preventDefault(); // cancel default behavior
+        if ($('#password').val() != $('#passwordConfirm').val()) {
+            $("#err_message").show();
         } else {
-            document.getElementById("lblRePassword").style.display = "inline";
+            $(this).submit();
         }
-    }
+    });
 </script>

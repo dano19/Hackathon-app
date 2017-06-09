@@ -1,42 +1,40 @@
-﻿@model Hackaton_app.Models.HotelListModel
+﻿@model Dictionary<CommonLibrary.Database.Venue, CommonLibrary.Database.Media>
 
-@{
-    ViewBag.Title = "View";
-}
 
-<h2>View</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>HotelListModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+    
 }
     <div>
     <div class="container">
         <div class="row">
-            <h2>Pinterest Responsive Grid</h2>
-            <p>
-                Best viewed <a href="http://bootsnipp.com/iframe/Zkk0O" target="_blank">full screen</a>
-            </p>
+            <h2>Lsit of places</h2>
+         
             <hr>
             <section id="pinBoot">
-                <article class="white-panel" >
+<!-- @for (int i = 0; i < Model.Count; i++)
+{
+    
+
+}-->
+                <article class="white-panel" >                    
                     <img src="http://i.imgur.com/sDLIAZD.png" alt="">
                     <h4><a href="#">Title 1</a></h4>
                     <p>
-                        fds ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        name
+                    </p>
+                    <p>
+                        adres 
+                    </p>
+                    <p>
+                        rating 
+                    </p>
+                    <p>
+
                     </p>
                 </article>
                 <article class="white-panel">

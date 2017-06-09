@@ -24,6 +24,9 @@ namespace CommonLibrary
         
         public DbSet<Database.Venue> Venues { get; set; }
         public DbSet<Database.User> Users { get; set; }
+        public DbSet<Database.Media> Medias { get; set; }
+        public DbSet<Database.Disability> Disabilities { get; set; }
+        public DbSet<Database.Type> Types { get; set; }
 
     }
 
