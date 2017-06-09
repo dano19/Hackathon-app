@@ -18,7 +18,7 @@ namespace Hackaton_app.Controllers
             var venues = Venue.GetList();
             foreach (var venue in venues) {
                 venue.MediaList = Media.GetList(venue.Id);
-                venue.disabliti = Ven
+                venue.disabliti = VenueDisability.GetList(venue.Id);
             }
 
             return View("Venues", venues);
