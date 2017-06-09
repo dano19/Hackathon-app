@@ -14,10 +14,10 @@ namespace CommonLibrary.Logic
                 return db.Medias.FirstOrDefault(x => x.VenueId.Equals(id) && x.IsDefault.Equals(1));
         }
 
-        public static List<Database.Media> GetList()
+        public static List<Database.Media> GetList(int venueId)
         {
             using (var db = new DatabaseContent())
-                return db.Medias.ToList();
+                return db.Medias.Where(x => x.VenueId.Equals(venueId)).ToList();
         }
     }
 }
