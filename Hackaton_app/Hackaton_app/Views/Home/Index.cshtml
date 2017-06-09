@@ -4,9 +4,8 @@
 
 <style>
     .city-image {
-        background: url(/Content/Images/Gdansk.jpg) no-repeat top center fixed;
-        
-
+        background: url(/Content/Images/hotel.jpg) no-repeat top center fixed;
+       
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -15,8 +14,6 @@
         width: 100%;
         background-color: #060;
         color: #fff;
-        text-align: center;
-        text-shadow: 0 1px 3px rgba(0,0,0,.5);
         padding-top: 250px;
     }
     .search-bar {
@@ -32,7 +29,7 @@
     
 <div class="alert alert-info search-bar">
     <div class="row">
-        <h1 class="cover-heading">&nbsp;Find your place for No Limit Trip!</h1>
+        <h1 class="cover-heading" style="color: #024cd8!important;">&nbsp;Find your place for No Limit Trip!</h1>
     </div>
     <br />
     <form>
@@ -42,6 +39,7 @@
             </div>
             <div class="col-md-3">
                 <select class="form-control">
+                    <option value="0">(venue type)</option>
                     @foreach (CommonLibrary.Database.Type item in ViewBag.types)
                     {
                         <option value="@item.Id">@item.Name</option>
@@ -50,6 +48,7 @@
             </div>
             <div class="col-md-3">
                 <select class="form-control">
+                    <option value="0">(disability)</option>
                     @foreach (CommonLibrary.Database.Disability item in ViewBag.disabilities)
                     {
                         <option value="@item.Id">@item.Name</option>

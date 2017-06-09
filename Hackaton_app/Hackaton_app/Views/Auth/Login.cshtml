@@ -2,11 +2,34 @@
     ViewBag.Title = "Login";
 }
 
-<div class="row">
-    <div class="col-md-6 mx-auto">
-        <div class="card">
+<style>
+    .city-image {
+        background: url(/Content/hotels/StockSnap_904EAD50B0.jpg) no-repeat top center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 80vh;
+        width: 100%;
+        padding-top: 250px;
+    }
+
+    .login-bar {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .w-x {
+        width: 30% !important;
+    }
+</style>
+
+<div class="city-image">
+    <div class="row ">
+        <div class="card  w-x login-bar">
             <div class="card-header">
-                <h3>Logirrn</h3>
+                <h3>Login</h3>
             </div>
             <div class="card-block">
                 <form method="post" action="@Url.Action("Login", "Auth")">
@@ -23,17 +46,19 @@
                             <button style="margin-top: 5px;" type="button" class="btn btn-success float-right">Log in</button>
                         </div>
                     </div>
-                    <hr/>
+                    <hr />
                     <div class="row">
                         <div class="col-md-6">
+                            <a href="@Url.Action("Register", "Auth")" class="btn btn-info">Create a Venue account</a>
+                        </div>
+                        <div class="col-md-6" style="text-align: right;">
                             <a href="@Url.Action("ForgotPassword", "Auth")" class="btn btn-info">Forgot your password?</a>
                         </div>
-                        <div class="col-md-6">
-                            <a href="@Url.Action("Register", "Auth")" class="btn btn-info">Create a Travel account</a>
-                        </div>
+
                     </div>
                 </form>
             </div>
         </div>
+
     </div>
-</div>
+    </div>
