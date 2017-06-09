@@ -28,8 +28,11 @@ namespace Hackaton_app
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/bootstrap-datetimepicker.js",
-                      "~/Content/listview.css"));
+                      "~/Content/bootstrap-datetimepicker.css",
+                      "~/Content/listview.css",
+                      "~/Content/font-awesome.css"));
+
+           
         }
     }
 }

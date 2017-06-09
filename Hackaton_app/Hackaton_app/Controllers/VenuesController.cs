@@ -34,5 +34,10 @@ namespace Hackaton_app.Controllers
             return View();
         }
 
+        public ActionResult Details()
+        {
+            return View("Details");
+        }
+
     }
 }

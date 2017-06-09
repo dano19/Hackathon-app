@@ -3,7 +3,7 @@
 }
 
 <div class="jumbotron">
-    <form>
+    <form method="post" action="@Url.Action("RenderVenues", "Venues")">
         <div class="row">    
             <div class="col-md-3">
                 <input type="text" class="form-control" placeholder="Localisation">
@@ -26,8 +26,8 @@
                     <option value="five">Five</option>
                 </select>
             </div>
-                <button type="submit" class="btn btn-info"> Search </button>
 
+                <button type="submit" class="btn btn-info" > Search </button>
            </div>
     </form>
 </div>
