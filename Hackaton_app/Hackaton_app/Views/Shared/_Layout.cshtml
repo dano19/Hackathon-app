@@ -18,17 +18,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                        @Html.ActionLink("Home", "Index", "Home")
+                    <a class="nav-link " href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav mr-auto navbar-toggler-right">
+                <li class="nav-item">
+                    <a class="nav-link " href="@Url.Action("Index", "Venue")">Add venue</a>
                 </li>
                 <li class="nav-item">
-                        @Html.ActionLink("Add Venue", "Index", "Venues")
+                    <a class="nav-link " href="@Url.Action("Contact", "Home")">Contact</a>
                 </li>
-                <li class="nav-item">
-                        @Html.ActionLink("Contact", "Contact", "Home")
+                <li class="nav-item ">
+                    <a class="nav-link" href="@Url.Action("Login", "Home")">Log In</a>
                 </li>
             </ul>
             
-            @Html.ActionLink("Login", "Login", "Home")
+            @Html.ActionLink("Zaloguj", "Index", "Login")
             
         </div>
     </nav>
