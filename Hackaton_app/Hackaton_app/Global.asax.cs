@@ -20,9 +20,9 @@ namespace Hackaton_app
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // = = Upgrade the database
-            System.Data.Entity.Database.SetInitializer<DatabaseContent>(new MigrateDatabaseToLatestVersion<DatabaseContent, MyObjextContextMigration<DatabaseContent>>());
-            DatabaseContent contexttest = new DatabaseContent();
-            contexttest.Database.Initialize(true);
+            //System.Data.Entity.Database.SetInitializer<DatabaseContent>(new MigrateDatabaseToLatestVersion<DatabaseContent, MyObjextContextMigration<DatabaseContent>>());
+            //DatabaseContent contexttest = new DatabaseContent();
+            //contexttest.Database.Initialize(true);
         }
     }
 }
