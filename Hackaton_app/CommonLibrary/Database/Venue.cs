@@ -30,6 +30,8 @@ namespace CommonLibrary.Database
         public string AddressCity { get; set; }
         [Column("COUNTRY")]
         public string AddressCountry { get; set; }
+        [Column("PLACE_ID")]
+        public string PlaceId { get; set; }
         
         [Column("PHONE")]
         public string PhoneNumber { get; set; }
