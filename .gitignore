@@ -1,5 +1,9 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
 /Hackaton_app/.vs/Hackaton_app/v15/.suo
+Hackaton_app/bin/
+Hackaton_app/obj/
+Hackaton_app/Hackaton_app/obj/Debug/Hackaton_app.csproj.FileListAbsolute.txt
+Hackaton_app/.vs/config/applicationhost.config
