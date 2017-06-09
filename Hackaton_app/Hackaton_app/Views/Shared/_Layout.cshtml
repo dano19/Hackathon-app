@@ -13,15 +13,19 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Tu Logo</a>
-
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")">Tu Logo</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item active">
-                    <a class="nav-link " href="@Url.Action("Index", "Home")">Home</a>
+                    <a class="nav-link " href="Url.Action(" Index", "Home" )">Home</a>
                 </li>
 
+
             </ul>
+
             <ul class="navbar-nav mr-auto navbar-toggler-right">
                 <li class="nav-item">
                     <a class="nav-link " href="@Url.Action("Index", "Venue")">Add venue</a>
@@ -33,9 +37,8 @@
                     <a class="nav-link" href="@Url.Action("Login", "Home")">Log In</a>
                 </li>
             </ul>
-            
-            @Html.ActionLink("Zaloguj", "Index", "Login")
-            
+
+
         </div>
     </nav>
     <div class="container body-content">
@@ -51,27 +54,27 @@
 
     @RenderSection("scripts", required: false)
 
-<script>
-    $(document).ready(function () {
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=1350471394989936";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        
-        var audioElement = document.createElement('audio');
+    <script>
+        $(document).ready(function () {
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=1350471394989936";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
 
-        $('.t2s').mouseover(function () {
-            audioElement.pause();
-            console.log($(this).text());
-            audioElement.setAttribute('src', 'http://localhost:64341/home/Text2Speech?text=' + $(this).text());
-            audioElement.play();
-            console.log('start play');
+            var audioElement = document.createElement('audio');
+
+            $('.t2s').mouseover(function () {
+                audioElement.pause();
+                console.log($(this).text());
+                audioElement.setAttribute('src', 'http://localhost:64341/home/Text2Speech?text=' + $(this).text());
+                audioElement.play();
+                console.log('start play');
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
