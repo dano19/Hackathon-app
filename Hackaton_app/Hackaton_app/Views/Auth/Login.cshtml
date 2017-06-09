@@ -1,7 +1,40 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Login</h3>
+            </div>
+            <div class="card-block">
+                <form method="post" action="@Url.Action("Login", "Auth")">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="width: 30%">Email</span>
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="input-group" style="margin-top: 5px;">
+                        <span class="input-group-addon" style="width: 30%">Password</span>
+                        <input type="text" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button style="margin-top: 5px;" type="button" class="btn btn-success float-right">Log in</button>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="@Url.Action("ForgotPassword", "Auth")" class="btn btn-info">Forgot your password?</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="@Url.Action("Register", "Auth")" class="btn btn-info">Create a Travel account</a>
+                        </div>
+                    </div>
 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,8 +21,10 @@ namespace Hackaton_app.Controllers
             var result = CommonLibrary.Logic.User.Login(email, password);
             TempData["message"] = result;
             if (result.Success)
+            {
+                HttpContext.Session["gUserID"] = result.ReturnId;
                 return RedirectToAction("Index", "Home");
-
+            }
             return RedirectToAction("Login", "Auth");
         }
         #endregion
@@ -46,5 +48,18 @@ namespace Hackaton_app.Controllers
         }
         #endregion
 
+        #region ForgotPassword
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgotPassword(string email)
+        {
+            TempData["message"] = new CommonLibrary.Utility.StatusResult(){ Success = true, Message = "Instructions how to reset password has been sent to your email."};
+            return RedirectToAction("Index", "Home");
+        }
+#endregion
     }
 }
