@@ -26,9 +26,13 @@
             <p>
                 @item.AddressStreet
             </p>
-            <p>
+            @foreach (var disabilities in item.VenueDisabilties)
+            {
+                <p>
 
-            </p>
+                </p>
+            }
+            
             <p>
 
             </p>
