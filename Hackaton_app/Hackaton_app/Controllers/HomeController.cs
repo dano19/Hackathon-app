@@ -18,16 +18,6 @@ namespace Hackaton_app.Controllers
             ViewBag.types = CommonLibrary.Logic.Type.GetList();
             return View();
         }
-        
-        public ActionResult Login()
-        {
-            return View("Login");
-        }
-
-        public ActionResult Register()
-        {
-            return View("Register");
-        }
 
         public async Task<ActionResult> Text2Speech(string text = "")
         {
