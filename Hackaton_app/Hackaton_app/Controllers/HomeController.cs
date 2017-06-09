@@ -29,14 +29,6 @@ namespace Hackaton_app.Controllers
             ViewBag.Message = "Your contact page.";
                 return View();
         }
-
-        public ActionResult TestFacebook()
-        {
-            var fb = new Facebook.FacebookClient("");
-            object result = fb.Post("me/feed", new {message = "Test of feed sending."});
-            ;
-            return Content("");
-        }
         
         public async Task<ActionResult> Text2Speech(string text = "")
         {
