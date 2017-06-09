@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CommonLibrary.Logic;
 
 namespace Hackaton_app.Controllers
 {
@@ -16,16 +17,13 @@ namespace Hackaton_app.Controllers
 
         public ActionResult RenderVenues() {
 
-            Models.HotelListModel hotelListData = new Models.HotelListModel()
-            {
-                Hotels = new List<Models.HotelItem>
-            {
-                new Models.HotelItem() { Name = "Gotyk House", Address = "Barowa 4" },
-                new Models.HotelItem() { Name = "Some House", Address = "Piwna 4", }
-
+            Dictionary<CommonLibrary.Database.Venue, CommonLibrary.Database.Media> venueAndMainPicturePair = new Dictionary<CommonLibrary.Database.Venue, CommonLibrary.Database.Media>();
+            foreach (CommonLibrary.Database.Venue venue in Venue.GetList()) {
+                venueAndMainPicturePair.Add(venue, Media.GetDefaultPictureByVenueId(venue.Id));
             }
-            };
-            return View("Venues", hotelListData);
+         
+      
+            return View("Venues", venueAndMainPicturePair);
         }
 
 

@@ -19,7 +19,7 @@ namespace CommonLibrary.Database
         public bool IsDefault { get; set; }
         [Column("DESCRIPTION")]
         public string Description { get; set; }
-        [Column("DATA")]
+        [Column("URL")]
         public string Location { get; set; } // Save file to App_Data
 
     }
