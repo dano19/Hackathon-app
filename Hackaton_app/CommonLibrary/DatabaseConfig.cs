@@ -23,6 +23,7 @@ namespace CommonLibrary
         }
         
         public DbSet<Database.Venue> Venues { get; set; }
+        public DbSet<Database.User> Users { get; set; }
 
     }
 

@@ -16,20 +16,17 @@ namespace Hackaton_app.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-                return View();
-        }
         
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
+
+        public ActionResult Register()
+        {
+            return View("Register");
+        }
+
         public async Task<ActionResult> Text2Speech(string text = "")
         {
             Task<FileContentResult> task = Task.Run(() =>

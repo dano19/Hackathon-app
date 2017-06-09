@@ -33,11 +33,11 @@
                     <a class="nav-link" href="@Url.Action("Login", "Home")">Log In</a>
                 </li>
             </ul>
+            
+            @Html.ActionLink("Zaloguj", "Index", "Login")
+            
         </div>
     </nav>
-
-
-
     <div class="container body-content">
         @RenderBody()
         <hr />
