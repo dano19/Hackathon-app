@@ -14,6 +14,8 @@ namespace Hackaton_app.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.disabilities = CommonLibrary.Logic.Disability.GetList();
+            ViewBag.types = CommonLibrary.Logic.Type.GetList();
             return View();
         }
         

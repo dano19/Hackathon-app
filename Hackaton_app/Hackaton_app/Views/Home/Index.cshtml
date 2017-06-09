@@ -42,20 +42,18 @@
                     </div>
                     <div class="col-md-3">
                         <select class="form-control">
-                            <option value="one">(venue type)</option>
-                            <option value="two">Two</option>
-                            <option value="three">Three</option>
-                            <option value="four">Four</option>
-                            <option value="five">Five</option>
+                            @foreach (CommonLibrary.Database.Type item in ViewBag.types)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
                         </select>
                     </div>
                     <div class="col-md-3">
                         <select class="form-control">
-                            <option value="one">(disorder type)</option>
-                            <option value="two">Two</option>
-                            <option value="three">Three</option>
-                            <option value="four">Four</option>
-                            <option value="five">Five</option>
+                            @foreach (CommonLibrary.Database.Disability item in ViewBag.disabilities)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
                         </select>
                     </div>
                     <button type="submit" class="btn btn-info"> Find </button>
