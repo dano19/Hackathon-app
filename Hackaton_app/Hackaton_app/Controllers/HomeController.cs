@@ -30,24 +30,13 @@ namespace Hackaton_app.Controllers
                 return View();
         }
 
-        //public async Task<ActionResult> T2STest()
-        //{
-        //    using (var synth = new SpeechSynthesizer())
-        //    {
-        //        foreach (var voice in synth.GetInstalledVoices())
-        //        {
-        //            VoiceInfo info = voice.VoiceInfo;
-        //            Debug.WriteLine(" Name:          " + info.Name);
-        //            Debug.WriteLine(" Culture:       " + info.Culture);
-        //            Debug.WriteLine(" Age:           " + info.Age);
-        //            Debug.WriteLine(" Gender:        " + info.Gender);
-        //            Debug.WriteLine(" Description:   " + info.Description);
-        //            Debug.WriteLine(" ID:            " + info.Id);
-        //            Debug.WriteLine(" Enabled:       " + voice.Enabled);
-        //        }
-        //    }
-        //    return View();
-        //}
+        public ActionResult TestFacebook()
+        {
+            var fb = new Facebook.FacebookClient("");
+            object result = fb.Post("me/feed", new {message = "Test of feed sending."});
+            ;
+            return Content("");
+        }
         
         public async Task<ActionResult> Text2Speech(string text = "")
         {
