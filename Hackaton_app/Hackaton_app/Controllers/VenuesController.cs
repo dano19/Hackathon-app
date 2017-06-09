@@ -14,6 +14,20 @@ namespace Hackaton_app.Controllers
             return View("Add");
         }
 
+        public ActionResult RenderVenues() {
+
+            Models.HotelListModel hotelListData = new Models.HotelListModel()
+            {
+                Hotels = new List<Models.HotelItem>
+            {
+                new Models.HotelItem() { Name = "Gotyk House", Address = "Barowa 4" },
+                new Models.HotelItem() { Name = "Some House", Address = "Piwna 4", }
+
+            }
+            };
+            return View("Venues", hotelListData);
+        }
+
 
         public ActionResult Add()
         {
