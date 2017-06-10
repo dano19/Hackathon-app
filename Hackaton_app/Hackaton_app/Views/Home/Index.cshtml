@@ -37,7 +37,7 @@
                 <input type="text" class="form-control" onmouseover="ReadText('Localization');" placeholder="Localization" name="city">
             </div>
             <div class="col-md-3">
-                <select class="form-control" name="typeOfDisablity" onmouseover="ReadText('Venue type');">
+                <select class="form-control" name="type" onmouseover="ReadText('Venue type');">
                     <option value="0">(venue type)</option>
                     @foreach (CommonLibrary.Database.Type item in ViewBag.types)
                     {
@@ -46,7 +46,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <select class="form-control" name="type" onmouseover="ReadText('Disability');"> 
+                <select class="form-control" name="typeOfDisablity" onmouseover="ReadText('Disability');"> 
                     <option value="0">(disability)</option>
                     @foreach (CommonLibrary.Database.Disability item in ViewBag.disabilities)
                     {
