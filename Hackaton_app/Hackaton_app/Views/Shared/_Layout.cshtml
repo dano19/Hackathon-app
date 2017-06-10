@@ -30,9 +30,19 @@
                 <li class="nav-item">
                     <a class="nav-link" style="font-size: 1.4rem;" href="@Url.Action("Create", "Venues")">Add venue </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link t2s" style="font-size: 1.4rem;" href="@Url.Action("Login", "Auth")"> Log In</a>
-                </li>
+                @if (HttpContext.Current.Session["gUserID"] == null)
+                {
+                    <li class="nav-item ">
+                        <a class="nav-link t2s" style="font-size: 1.4rem;" href="@Url.Action("Login", "Auth")"> Log In</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item ">
+                        <a class="nav-link t2s" style="font-size: 1.4rem;" href="#">@CommonLibrary.Logic.User.GetById((int)HttpContext.Current.Session["gUserID"]).Firstname @CommonLibrary.Logic.User.GetById((int)HttpContext.Current.Session["gUserID"]).Lastname</a>
+                    </li>
+                }
+                
             </ul>
             
         </div>
@@ -55,11 +65,11 @@
     
     function ReadText(_text) {
         audioElement.pause();
-        audioElement.setAttribute('src', 'http://hackathon.vpopstudio.eu/home/Text2Speech?text=' + _text);
+        audioElement.setAttribute('src', 'http://localhost:@(Request.Url.Port)/home/Text2Speech?text=' + _text);
         audioElement.play();
     }
     $(document).ready(function () {
-        ReadText('Page has loaded');
+        ReadText('Page: @ViewBag.Title');
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
