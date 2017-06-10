@@ -3,69 +3,108 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+        #map {
+        margin-top: 1%;
+        height: 99%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .controls {
+        background-color: #fff;
+        border-radius: 2px;
+        border: 1px solid transparent;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        height: 29px;
+        margin-left: 17px;
+        margin-top: 10px;
+        outline: none;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+    }
+
+    .controls:focus {
+        border-color: #4d90fe;
+    }
+    .title {
+        font-weight: bold;
+    }
+    #infowindow-content {
+        display: none;
+    }
+    #map #infowindow-content {
+        display: inline;
+    }
 
 
-
-<div class="row">
-    <div class="col-md-12">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-
-            <div class="carousel-inner center-block">
-                
-                <div class="item active">
-                    <img src="~/Content/hotels/hotel-room-1447201_1280.jpg" alt="" style="height:400px;width:100%;">
-                </div>
-
-                <div class="item">
-                    <img src="~/Content/hotels/StockSnap_904EAD50B0.jpg" alt="" style="height:400px;width:100%;">
-                </div>
-
-                <div class="item">
-                    <img src="~/Content/hotels/StockSnap_904EAD50B0.jpg" alt="" style="height:400px;width:100%;">
-                </div>
-            </div>
-
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-10">
-
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-        It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of
-        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-        software like Aldus PageMaker including versions of Lorem Ipsum.
-
-    </div>
-</div>
-
-
+</style>
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner center-block">
+
+                    <div class="item active">
+                        <img src="~/Content/hotels/hotel-room-1447201_1280.jpg" alt="" style="height:400px;width:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="~/Content/hotels/StockSnap_904EAD50B0.jpg" alt="" style="height:400px;width:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="~/Content/hotels/StockSnap_904EAD50B0.jpg" alt="" style="height:400px;width:100%;">
+                    </div>
+                </div>
+
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-md-8">
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+            software like Aldus PageMaker including versions of Lorem Ipsum.
+
+        </div>
+       
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
             <div class="rating-block">
                 <h4>Average rating</h4>
                 <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
@@ -98,7 +137,7 @@
         </div>
 
 
-   
+
         <div class="col-sm-3">
             <h4>Rating breakdown</h4>
             <div class="pull-left">
@@ -162,15 +201,19 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div id="map"></div>
+        </div>
     </div>
 
 
-    <hr/>
+    <hr />
 
 
     <form>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="form-group col-md-10">
+                <label for="formGroupInputLarge1" class="col-sm-2 control-label">Rate:</label>
                 <div class="rating-block">
                     <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
                         <div class="rating">
@@ -200,6 +243,7 @@
                 </div>
             </div>
         </div>
+        <br/>
         <div class="row">
             <div class="form-group col-md-10">
                 <label for="formGroupInputLarge1" class="col-sm-2 control-label">Comment:</label>
@@ -210,8 +254,10 @@
 
         </div>
 
+        <div style="margin-left:45%;">
+            <button class="btn btn-large btn-primary" type="submit">Submit</button>
+        </div>
 
-        <button type="submit" class="btn btn-secondary btn-lg">Send</button>
     </form>
 
 
@@ -251,20 +297,60 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="review-block-name"><a href="#">nktailor</a></div>
-                        <div class="review-block-date">January 29, 2016<br />1 day ago</div>
+                        <div class="review-block-name"><a href="#">nktailor</a> January 29, 2016  </div>
                         <div class="review-block-title">this was nice in buy</div>
                         <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
-</div>
 </div> 
 
 <script>
     $('.carousel').carousel({
-        interval: 2000
+        interval: 200000
     })
 </script>
+
+<script>
+    var map;
+    var markers = [];
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        $('#city, #country, #street').focusout(function () {
+            geocodeAddress(geocoder, map);
+        });
+    }
+
+    function geocodeAddress(geocoder, resultsMap) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+        var address = $('#street').val() + ", " + $('#city').val() + ", " + $('#country').val(); /*document.getElementById('address').value;*/
+        geocoder.geocode({'address': address}, function(results, status) {
+            if (status === 'OK') {
+                console.log('ok');
+
+                resultsMap.setCenter(results[0].geometry.location);
+                $('#MapPlaceId').val(results[0].place_id);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+                markers.push(marker);
+            } else {
+                console.log('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiVLgf0alMQLko1rbpODHX1FkO5RnWy4c&libraries=places&callback=initMap&language=en"
+        async defer></script>
 
