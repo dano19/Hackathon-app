@@ -56,7 +56,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h2> @Model.Name </h2>
+            <h2 class="t2s"> @Model.Name </h2>
         </div>
     </div>
 
@@ -90,7 +90,7 @@
     </div>
     
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-10 t2s">
             @Model.Description
         </div>
     </div>
@@ -106,34 +106,34 @@
             <form method="post" action="@Url.Action("PostComment", "Venues", new {venueId = Model.Id})">
                 <input type="hidden" name="rate" id="rate" value="1" />
                 <div class="form-group">
-                    <label>Comment:</label>
-                    <textarea class="form-control" rows="5" name="comment"></textarea>
+                    <label class="t2s">Comment:</label>
+                    <textarea class="form-control" rows="5" name="comment" onmouseover="ReadText('Comment field');"></textarea>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-7">
                         <label for="formGroupInputLarge1">Rate:</label>
                         <div class="rating-block">
-                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s1" value="1" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s1" onmouseover="ReadText('Give 1 star');" value="1" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s2" value="2" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s2" onmouseover="ReadText('Give 2 stars');" value="2" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s3" value="3" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s3" onmouseover="ReadText('Give 3 stars');" value="3" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s4" value="4" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s4" onmouseover="ReadText('Give 4 stars');" value="4" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s5" value="5" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s5" onmouseover="ReadText('Give 5 stars');" value="5" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
@@ -142,7 +142,7 @@
                     </div>
                     <div class="col-md-2">
                         <div>
-                            <button class="btn btn-lg btn-primary" type="submit">Give a rate</button>
+                            <button class="btn btn-lg btn-primary t2s" type="submit">Give a rate</button>
                         </div>
                     </div>
                 </div>
@@ -163,34 +163,34 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="review-block-rate">
-                                <button type="button" class="btn btn-warning" aria-label="Left Align">
+                                <button type="button" class="btn btn-warning" onmouseover="ReadText('@(item.Rating) star');" aria-label="Left Align">
                                     <div class="rating">
                                         <span>☆</span>
                                     </div>
                                 </button>
-                                <button type="button" class="btn @(item.Rating >= 2 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                <button type="button" class="btn @(item.Rating >= 2 ? "btn-warning" : "btn-secondary")" onmouseover="ReadText('@(item.Rating) stars');" aria-label="Left Align">
                                     <div class="rating">
                                         <span>☆</span>
                                     </div>
                                 </button>
-                                <button type="button" class="btn @(item.Rating >= 3 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                <button type="button" class="btn @(item.Rating >= 3 ? "btn-warning" : "btn-secondary")" onmouseover="ReadText('@(item.Rating) stars');" aria-label="Left Align">
                                     <div class="rating">
                                         <span>☆</span>
                                     </div>
                                 </button>
-                                <button type="button" class="btn @(item.Rating >= 4 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                <button type="button" class="btn @(item.Rating >= 4 ? "btn-warning" : "btn-secondary")" onmouseover="ReadText('@(item.Rating) stars');" aria-label="Left Align">
                                     <div class="rating">
                                         <span>☆</span>
                                     </div>
                                 </button>
-                                <button type="button" class="btn @(item.Rating >= 5 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                <button type="button" class="btn @(item.Rating >= 5 ? "btn-warning" : "btn-secondary")" onmouseover="ReadText('@(item.Rating) stars');" aria-label="Left Align">
                                     <div class="rating">
                                         <span>☆</span>
                                     </div>
                                 </button>
                             </div>
-                            <div class="review-block-name"><a href="#">nktailor</a> @item.Date.ToString("MMMM dd, yyyy")</div>
-                            <div class="review-block-description">@item.CommentContent</div>
+                            <div class="review-block-name t2s"><a href="#">nktailor</a> @item.Date.ToString("MMMM dd, yyyy")</div>
+                            <div class="review-block-description t2s">@item.CommentContent</div>
                         </div>
                     </div>
                 </div>

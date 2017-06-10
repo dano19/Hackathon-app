@@ -28,33 +28,33 @@
     
 <div class="alert alert-info search-bar">
     <div class="row">
-        <h1 class="cover-heading" style="color: #024cd8!important;">&nbsp;Find your place for NoLimitTrip!</h1>
+        <h1 class="cover-heading" style="color: #024cd8!important;" onmouseover="ReadText('Find your place for NoLimitTrip');">&nbsp;Find your place for NoLimitTrip!</h1>
     </div>
     <br />
     <form method="post" action="@Url.Action("RenderVenues", "Venues")">
         <div class="row">
             <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Localization" name="city">
+                <input type="text" class="form-control" onmouseover="ReadText('Localization');" placeholder="Localization" name="city">
             </div>
             <div class="col-md-3">
-                <select class="form-control" name="typeOfDisablity">
+                <select class="form-control" name="typeOfDisablity" onmouseover="ReadText('Venue type');">
                     <option value="0">(venue type)</option>
                     @foreach (CommonLibrary.Database.Type item in ViewBag.types)
                     {
-                        <option value="@item.Id">@item.Name</option>
+                        <option onmouseover="ReadText('@item.Name');" value="@item.Id">@item.Name</option>
                     }
                 </select>
             </div>
             <div class="col-md-3">
-                <select class="form-control" name="type">
+                <select class="form-control" name="type" onmouseover="ReadText('Disability');"> 
                     <option value="0">(disability)</option>
                     @foreach (CommonLibrary.Database.Disability item in ViewBag.disabilities)
                     {
-                        <option value="@item.Id">@item.Name</option>
+                        <option onmouseover="ReadText('@item.Name');" value="@item.Id">@item.Name</option>
                     }
                 </select>
             </div>
-            <button type="submit" class="btn btn-info"> Find </button>
+            <button type="submit" onmouseover="ReadText('Search');"  class="btn btn-info"> Find </button>
 
         </div>
     </form>
