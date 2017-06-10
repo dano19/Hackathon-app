@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Add";
+﻿@model List<CommonLibrary.Database.Type>
+@{
+    ViewBag.Title = "Add venue";
 }
 
 <style>
@@ -15,92 +16,64 @@
         margin: 0;
         padding: 0;
     }
-    .controls {
-        background-color: #fff;
-        border-radius: 2px;
-        border: 1px solid transparent;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        box-sizing: border-box;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        height: 29px;
-        margin-left: 17px;
-        margin-top: 10px;
-        outline: none;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-    }
-
-    .controls:focus {
-        border-color: #4d90fe;
-    }
-    .title {
-        font-weight: bold;
-    }
-    #infowindow-content {
-        display: none;
-    }
-    #map #infowindow-content {
-        display: inline;
-    }
-
 </style>
 
 <div class="row">
     <div class="col-md-10 mx-auto">
         <div class="card">
             <div class="card-header">
-                <h3>Add venue</h3>
+                <h3>Add new venue</h3>
             </div>
             <div class="card-block">
-                <form method="post" action="@Url.Action("", "")">
+                <form method="post" action="@Url.Action("Create", "Venues")" enctype="multipart/form-data">
                     <div class="input-group">
                         <span class="input-group-addon" style="width: 30%">Venue name</span>
-                        <input type="text" class="form-control" required placeholder="Venue name">
+                        <input type="text" class="form-control" required name="name" placeholder="Venue name">
                     </div>
                     <div class="input-group" style="margin-top: 5px;">
                         <span class="input-group-addon" style="width: 30%">Venue type</span>
-                        <select class="form-control">
-                            <option value="one">One</option>
-                            <option value="two">Two</option>
-                            <option value="three">Three</option>
-                            <option value="four">Four</option>
-                            <option value="five">Five</option>
+                        <select class="form-control" name="type">
+                            @foreach (var item in Model)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
                         </select>
                     </div>
                     <div class="input-group" style="margin-top: 5px;">
                         <span class="input-group-addon" style="width: 30%">Description</span>
-                        <textarea class="form-control" rows="5" placeholder="Description"></textarea>
+                        <textarea class="form-control" rows="5" name="description" placeholder="Description"></textarea>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-7">
-                            <input type="hidden" name="MapPlaceId" id="MapPlaceId" value="" />
+                            <input type="hidden" name="mapsPlaceId" id="MapPlaceId" value="" />
                             <div class="input-group" style="margin-top: 5px;">
                                 <span class="input-group-addon disabled" style="width: 52.5%">Country name</span>
-                                <input type="text" class="form-control" required id="country" placeholder="Country name">
+                                <input type="text" class="form-control" name="country" required id="country" placeholder="Country name">
                             </div>
                             <div class="input-group" style="margin-top: 5px;">
                                 <span class="input-group-addon" style="width: 52.5%">City name</span>
-                                <input type="text" class="form-control" required id="city" placeholder="City name">
+                                <input type="text" class="form-control" required name="city" id="city" placeholder="City name">
                             </div>
                             <div class="input-group" style="margin-top: 5px;">
                                 <span class="input-group-addon" style="width: 52.5%">Street name</span>
-                                <input type="text" class="form-control" required id="street" placeholder="Street name">
+                                <input type="text" class="form-control" required  name="street" id="street" placeholder="Street name">
                             </div>
                             <div class="input-group" style="margin-top: 5px;">
                                 <span class="input-group-addon" style="width: 52.5%">Phone number</span>
-                                <input type="text" class="form-control" required placeholder="Phone number">
+                                <input type="text" class="form-control" required name="phone" placeholder="Phone number">
                             </div>
                             <div class="input-group" style="margin-top: 5px;">
                                 <span class="input-group-addon" style="width: 52.5%">Email</span>
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+                            <div class="input-group" style="margin-top: 5px;">
+                                <span class="input-group-addon" style="width: 52.5%">Website link</span>
+                                <input type="text" class="form-control" name="website" placeholder="Website link">
                             </div>
                             <div class="input-group" style="margin-top: 5px;">
                                 <span class="input-group-addon" style="width: 52.5%">Facebook page link</span>
-                                <input type="text" class="form-control" placeholder="Facebook page link">
+                                <input type="text" class="form-control" name="facebook" placeholder="Facebook page link">
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -108,12 +81,12 @@
                         </div>
                     </div>
                     <div class="input-group" style="margin-top: 5px;">
-                        <span class="input-group-addon" style="width: 30%">Description</span>
-                        File upload here with preview
+                        <span class="input-group-addon" style="width: 30%">Images</span>
+                        <input type="file" multiple="multiple" class="form-control" name="files" placeholder="Images">
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button style="margin-top: 5px;" type="button" class="btn btn-success float-right">Add venue</button>
+                            <button style="margin-top: 5px;" type="submit" class="btn btn-success float-right">Add new venue</button>
                         </div>
                     </div>
                     <hr />
@@ -121,6 +94,10 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="dZUpload" class="dropzone">
+    <div class="dz-default dz-message"></div>
 </div>
 <script>
     var map;
