@@ -20,13 +20,13 @@
     {
         <article class="white-panel">
      
-            <img src="@(item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)) == null ?"":item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)).Location)" alt="">
+            <img src="~/Content/hotels/@(item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)) == null ?"":item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)).Location)" alt="">
            
             <h4><a href="@Url.Action("GetDetails", "Venues", new { @item.Id })">@item.Name</a></h4>
             <p>
                 @item.AddressStreet
             </p>
-
+          
             <div class="row">
                 <div class="col-md-6">Disability description </div>
                 <div class="col-md-6">Level of helping</div>
@@ -37,7 +37,9 @@
                     <div class="col-md-6">
                         <p>@disabilities.DisabilityDescription</p>
                     </div>
-                    <div class="col-md-6"><p>@disabilities.LevelDisabilityDescription</p></div>
+                    <div class="col-md-6">
+                        <p>@disabilities.LevelDisabilityDescription</p>
+                    </div>
                 </div>
             }
             
