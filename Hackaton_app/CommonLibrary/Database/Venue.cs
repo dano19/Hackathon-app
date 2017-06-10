@@ -41,5 +41,11 @@ namespace CommonLibrary.Database
         public string Website { get; set; }
         [Column("FB")]
         public string Facebook { get; set; }
+
+        [NotMapped]
+        public List<Database.Media> MediaList = new List<Media>();
+
+        [NotMapped]
+        public List<Database.Venue_disability> VenueDisabilties = new List<Venue_disability>();
     }
 }
