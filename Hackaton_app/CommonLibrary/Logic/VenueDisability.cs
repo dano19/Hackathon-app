@@ -24,7 +24,8 @@ namespace CommonLibrary.Logic
                                 Disability = vd.Disability,
                                 Level = vd.Level,
                                 DisabilityDescription = dd.Description,
-                                LevelDisabilityDescription = ld.Description                               
+                                LevelDisabilityDescription = ld.Description,
+                                UrlToIcon = ld.UrlToImage                                
                             }).ToList();
                 return list;
             }

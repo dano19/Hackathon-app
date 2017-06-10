@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonLibrary.DTO
 {
+    
     public class VenueDisabilityDTO
     {
         public int Id { get; set; }
@@ -16,5 +17,7 @@ namespace CommonLibrary.DTO
         public String DisabilityDescription { get; set; }
 
         public String LevelDisabilityDescription { get; set; }
+        
+        public String UrlToIcon { get; set; }
     }
 }
