@@ -17,7 +17,7 @@ namespace CommonLibrary.Logic
                 var list = (from vd in db.VenueDisabilities
                             join dd in db.Disabilities on vd.Disability equals dd.Id
                             join ld in db.DisabilityLevel on vd.Level equals ld.Id
-                            where vd.Id == venueId
+                            where vd.VenueId == venueId
                             select new DTO.VenueDisabilityDTO {
                                 Id = vd.Id,
                                 VenueId = vd.VenueId,
