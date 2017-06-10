@@ -10,28 +10,17 @@ namespace Hackaton_app.Controllers
 {
     public class VenuesController : Controller
     {
-        public ActionResult Index()
+        public ActionResult RenderVenues()
         {
-            return View("Create");
-        }
-
-        public ActionResult RenderVenues() {
             var venues = Venue.GetList();
-            foreach (var venue in venues) {
+            foreach (var venue in venues)
+            {
                 venue.MediaList = Media.GetList(venue.Id);
                 venue.VenueDisabilties = VenueDisability.GetList(venue.Id);
             }
-
             return View("Venues", venues);
-            }
-
-        public ActionResult Details()
-        {
-
-            return View("Details");
         }
-
-
+        
         #region Create
         [HttpGet]
         public ActionResult Create()
@@ -56,7 +45,8 @@ namespace Hackaton_app.Controllers
             }
             return RedirectToAction("Create", "Venues");
         }
-#endregion
+        #endregion
+        
         public ActionResult Details(int id)
         {
             return View("Details");
