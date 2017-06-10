@@ -94,7 +94,7 @@
             @Model.Description
         </div>
     </div>
-    
+    <hr />
     <div class="row">
         <div class="col-md-4">
             Disability help level
@@ -103,36 +103,37 @@
             <div id="map"></div>
         </div>
         <div class="col-md-4">
-            <form>
-                    <div class="form-group">
-                        <label>Comment:</label>
-                        <textarea class="form-control" rows="5" name="description"></textarea>
-                    </div>
+            <form method="post" action="@Url.Action("PostComment", "Venues", new {venueId = Model.Id})">
+                <input type="hidden" name="rate" id="rate" value="1" />
+                <div class="form-group">
+                    <label>Comment:</label>
+                    <textarea class="form-control" rows="5" name="comment"></textarea>
+                </div>
                 <div class="row">
                     <div class="form-group col-md-7">
                         <label for="formGroupInputLarge1">Rate:</label>
                         <div class="rating-block">
-                            <button type="button" class="btn btn-secondary btn-sm" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s1" value="1" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s2" value="2" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s3" value="3" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s4" value="4" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-secondary btn-sm" aria-label="Left Align">
+                            <button type="button" class="btn btn-secondary btn-sm rateStar" id="s5" value="5" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
                                 </div>
@@ -141,7 +142,7 @@
                     </div>
                     <div class="col-md-2">
                         <div>
-                            <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-lg btn-primary" type="submit">Give a rate</button>
                         </div>
                     </div>
                 </div>
@@ -150,50 +151,60 @@
     </div>
 
     <hr />
-
-    <div class="row">
-        <div class="col-sm-7">
-            <div class="review-block">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                    </div>
-                    <div class="col-sm-9">
-                        <div class="review-block-rate">
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                <div class="rating">
-                                    <span>☆</span>
-                                </div>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                <div class="rating">
-                                    <span>☆</span>
-                                </div>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                <div class="rating">
-                                    <span>☆</span>
-                                </div>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                <div class="rating">
-                                    <span>☆</span>
-                                </div>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                <div class="rating">
-                                    <span>☆</span>
-                                </div>
-                            </button>
+    
+    @foreach (var item in Model.Comments)
+    {
+        <div class="row" style="margin-top: 5px;">
+            <div class="col-sm-7">
+                <div class="review-block">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
                         </div>
-                        <div class="review-block-name"><a href="#">nktailor</a> January 29, 2016  </div>
-                        <div class="review-block-title">this was nice in buy</div>
-                        <div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+                        <div class="col-sm-9">
+                            <div class="review-block-rate">
+                                <button type="button" class="btn btn-warning" aria-label="Left Align">
+                                    <div class="rating">
+                                        <span>☆</span>
+                                    </div>
+                                </button>
+                                <button type="button" class="btn @(item.Rating >= 2 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                    <div class="rating">
+                                        <span>☆</span>
+                                    </div>
+                                </button>
+                                <button type="button" class="btn @(item.Rating >= 3 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                    <div class="rating">
+                                        <span>☆</span>
+                                    </div>
+                                </button>
+                                <button type="button" class="btn @(item.Rating >= 4 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                    <div class="rating">
+                                        <span>☆</span>
+                                    </div>
+                                </button>
+                                <button type="button" class="btn @(item.Rating >= 5 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                    <div class="rating">
+                                        <span>☆</span>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="review-block-name"><a href="#">nktailor</a> @item.Date.ToString("MMMM dd, yyyy")</div>
+                            <div class="review-block-description">@item.CommentContent</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
+    @if (Model.Comments.Count == 0)
+    {
+        <div class="row">
+            <div class="col-md-7">
+                <div class="alert alert-warning text-center">No comments has been posted yet. Sorry.</div>
+            </div>
+        </div>
+    }
 </div>
 
 <script>
@@ -236,3 +247,19 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiVLgf0alMQLko1rbpODHX1FkO5RnWy4c&libraries=places&callback=initMap&language=en"
         async defer></script>
 
+<script>
+    $(document).ready(function() {
+        $('.rateStar').mouseover(function() {
+            var stars = $(this).val();
+            $('#rate').val(stars);
+            for (var i = 1; i <= 5; i++) {
+                $('#s' + i).removeClass('btn-warning');
+                $('#s' + i).addClass('btn-secondary');
+            }
+            for (var i = 1; i <= stars; i++) {
+                $('#s' + i).removeClass('btn-secondary');
+                $('#s' + i).addClass('btn-warning');
+            }
+        });
+    });
+</script>

@@ -72,8 +72,18 @@ namespace Hackaton_app.Controllers
         {
             var venue = Venue.GetById(id);
             venue.MediaList = Media.GetList(venue.Id);
+            venue.Comments = Comment.GetList(venue.Id);
             return View("Details", venue);
         }
 
+        #region Comment
+
+        [HttpPost]
+        public ActionResult PostComment(int venueId, string comment, int rate)
+        {
+            Comment.Create(comment, rate, venueId, 1);
+            return RedirectToAction("Details", "Venues", new {id = venueId});
+        }
+        #endregion
     }
 }
