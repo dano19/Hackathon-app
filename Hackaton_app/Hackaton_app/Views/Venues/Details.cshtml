@@ -50,69 +50,106 @@
     #map #infowindow-content {
         display: inline;
     }
+
+    .city-image {
+        background: #e4e4e4;
+        padding-top: 20px;
+        min-height: 80vh;
+    }
+    .my-container {
+        background-color: #f7f7f9;
+        border-color: #bcdff1;
+        color: #31708f;
+        padding: 1.75rem 2.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
+
+    .img-pophover {
+        width: 24px;
+        height: 24px;
+    }
+
+
 </style>
+<div class="city-image">
+    <div class="container my-container">
 
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-12">
-            <h2> @Model.Name </h2>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    @foreach (var media in Model.MediaList)
-                    {
-                        <li data-target="#carouselExampleIndicators" data-slide-to="@Model.MediaList.IndexOf(media)" active class="@(media.IsDefault ? "active" : "")"></li>
-                    }
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    @foreach (var media in Model.MediaList)
-                    {
-                        <div class="carousel-item @(media.IsDefault ? "active" : "")">
-                            <img src="~/Content/hotels/@(media.Location)" style="height: 350px;" alt="First slide">
-                        </div>
-                    }
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+        <div class="row">
+            <div class="col-md-12">
+                <h2> @Model.Name </h2>
             </div>
         </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-10">
-            @Model.Description
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        @foreach (var media in Model.MediaList)
+                        {
+                            <li data-target="#carouselExampleIndicators" data-slide-to="@Model.MediaList.IndexOf(media)" active class="@(media.IsDefault ? "active" : "")"></li>
+                        }
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        @foreach (var media in Model.MediaList)
+                        {
+                            <div class="carousel-item @(media.IsDefault ? "active" : "")">
+                                <img src="~/Content/hotels/@(media.Location)" style="height: 350px;" alt="First slide">
+                            </div>
+                        }
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            Disability help level
+
+        <div class="row col-md-10">
+            
+                @Model.Description
+            
         </div>
-        <div class="col-md-4">
-            <div id="map"></div>
+        <hr />
+        <div class="row col-md-10">
+           
+      
+            <img class="img-pophover" src="~/Content/Images/blind-red.png" />
+            <img class="img-pophover" src="~/Content/Images/deaf-green.png" />
+           
+            <img class="img-pophover" src="~/Content/Images/diabetic-green.png" />
+            <img class="img-pophover" src="~/Content/Images/mobi-yello.png" />
         </div>
-        <div class="col-md-4">
+
+
+
+        <hr />
+
+        <div  >
             <form method="post" action="@Url.Action("PostComment", "Venues", new {venueId = Model.Id})">
                 <input type="hidden" name="rate" id="rate" value="1" />
                 <div class="form-group">
                     <label>Comment:</label>
                     <textarea class="form-control" rows="5" name="comment"></textarea>
+                    
+
+                   
                 </div>
-                <div class="row">
-                    <div class="form-group col-md-7">
-                        <label for="formGroupInputLarge1">Rate:</label>
-                        <div class="rating-block">
+                
+
+                    <div class="form-group ">
+                       <!--
+                        <div class="col-md-2">
+                            <label for="formGroupInputLarge1">Rate:</label>
+                        </div>
+
+                        <div class="rating-block col-md-6">
                             <button type="button" class="btn btn-secondary btn-sm rateStar" id="s1" value="1" aria-label="Left Align">
                                 <div class="rating">
                                     <span>☆</span>
@@ -139,81 +176,88 @@
                                 </div>
                             </button>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div>
-                            <button class="btn btn-lg btn-primary" type="submit">Give a rate</button>
+                        -->
+                        <div class="col-md-12" style="text-align:right;">
+                            <button class="btn btn-primary" type="submit">Give a rate</button>
                         </div>
-                    </div>
+                        <hr />
                 </div>
+
             </form>
         </div>
-    </div>
 
-    <hr />
-    
-    @foreach (var item in Model.Comments)
-    {
-        <div class="row" style="margin-top: 5px;">
-            <div class="col-sm-7">
-                <div class="review-block">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="review-block-rate">
-                                <button type="button" class="btn btn-warning" aria-label="Left Align">
-                                    <div class="rating">
-                                        <span>☆</span>
+        
+        <div class="row" style="height:400px;">
+            <div class="col-md-12">
+                <div id="map"></div>
+            </div>
+        </div>
+   
+            <hr />
+
+            @foreach (var item in Model.Comments)
+            {
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-7">
+                        <div class="review-block">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="review-block-rate">
+                                        <button type="button" class="btn btn-warning" aria-label="Left Align">
+                                            <div class="rating">
+                                                <span>☆</span>
+                                            </div>
+                                        </button>
+                                        <button type="button" class="btn @(item.Rating >= 2 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                            <div class="rating">
+                                                <span>☆</span>
+                                            </div>
+                                        </button>
+                                        <button type="button" class="btn @(item.Rating >= 3 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                            <div class="rating">
+                                                <span>☆</span>
+                                            </div>
+                                        </button>
+                                        <button type="button" class="btn @(item.Rating >= 4 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                            <div class="rating">
+                                                <span>☆</span>
+                                            </div>
+                                        </button>
+                                        <button type="button" class="btn @(item.Rating >= 5 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
+                                            <div class="rating">
+                                                <span>☆</span>
+                                            </div>
+                                        </button>
                                     </div>
-                                </button>
-                                <button type="button" class="btn @(item.Rating >= 2 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
-                                    <div class="rating">
-                                        <span>☆</span>
-                                    </div>
-                                </button>
-                                <button type="button" class="btn @(item.Rating >= 3 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
-                                    <div class="rating">
-                                        <span>☆</span>
-                                    </div>
-                                </button>
-                                <button type="button" class="btn @(item.Rating >= 4 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
-                                    <div class="rating">
-                                        <span>☆</span>
-                                    </div>
-                                </button>
-                                <button type="button" class="btn @(item.Rating >= 5 ? "btn-warning" : "btn-secondary")" aria-label="Left Align">
-                                    <div class="rating">
-                                        <span>☆</span>
-                                    </div>
-                                </button>
+                                    <div class="review-block-name"><a href="#">nktailor</a> @item.Date.ToString("MMMM dd, yyyy")</div>
+                                    <div class="review-block-description">@item.CommentContent</div>
+                                </div>
                             </div>
-                            <div class="review-block-name"><a href="#">nktailor</a> @item.Date.ToString("MMMM dd, yyyy")</div>
-                            <div class="review-block-description">@item.CommentContent</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
+            @if (Model.Comments.Count == 0)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning text-center">No comments has been posted yet. Sorry.</div>
+                    </div>
+                </div>
+            }
         </div>
-    }
-    @if (Model.Comments.Count == 0)
-    {
-        <div class="row">
-            <div class="col-md-7">
-                <div class="alert alert-warning text-center">No comments has been posted yet. Sorry.</div>
-            </div>
-        </div>
-    }
-</div>
+  </div>
 
-<script>
-    $('.carousel').carousel({
-        interval: 200000
-    });
-</script>
+    <script>
+        $('.carousel').carousel({
+            interval: 200000
+        });
+    </script>
 
-<script>
+    <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 8,
@@ -243,23 +287,23 @@
     };
 
 
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiVLgf0alMQLko1rbpODHX1FkO5RnWy4c&libraries=places&callback=initMap&language=en"
-        async defer></script>
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiVLgf0alMQLko1rbpODHX1FkO5RnWy4c&libraries=places&callback=initMap&language=en"
+            async defer></script>
 
-<script>
-    $(document).ready(function() {
-        $('.rateStar').mouseover(function() {
-            var stars = $(this).val();
-            $('#rate').val(stars);
-            for (var i = 1; i <= 5; i++) {
-                $('#s' + i).removeClass('btn-warning');
-                $('#s' + i).addClass('btn-secondary');
-            }
-            for (var i = 1; i <= stars; i++) {
-                $('#s' + i).removeClass('btn-secondary');
-                $('#s' + i).addClass('btn-warning');
-            }
+    <script>
+        $(document).ready(function () {
+            $('.rateStar').mouseover(function () {
+                var stars = $(this).val();
+                $('#rate').val(stars);
+                for (var i = 1; i <= 5; i++) {
+                    $('#s' + i).removeClass('btn-warning');
+                    $('#s' + i).addClass('btn-secondary');
+                }
+                for (var i = 1; i <= stars; i++) {
+                    $('#s' + i).removeClass('btn-secondary');
+                    $('#s' + i).addClass('btn-warning');
+                }
+            });
         });
-    });
-</script>
+    </script>

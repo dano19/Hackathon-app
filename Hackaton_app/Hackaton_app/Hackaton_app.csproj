@@ -160,6 +160,7 @@
     <Content Include="Content\Images\blind-green.png" />
     <Content Include="Content\Images\blind-red.png" />
     <Content Include="Content\Images\blind-yello.png" />
+    <Content Include="Content\Images\city1.jpg" />
     <Content Include="Content\Images\deaf-green.png" />
     <Content Include="Content\Images\deaf-red.png" />
     <Content Include="Content\Images\deaf-yello.png" />
