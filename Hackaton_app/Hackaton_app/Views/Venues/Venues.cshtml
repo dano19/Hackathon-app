@@ -23,7 +23,7 @@
      
             <img src="~/Content/hotels/@(item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)) == null ?"":item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)).Location)" alt="">
            
-            <h4><a href="@Url.Action("GetDetails", "Venues", new { id =item.Id })">@item.Name</a></h4>
+            <h4><a href="@Url.Action("Details", "Venues", new { id =item.Id })">@item.Name</a></h4>
             <p>
                 @item.AddressStreet
             </p>
