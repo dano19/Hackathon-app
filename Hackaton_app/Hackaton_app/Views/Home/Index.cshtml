@@ -31,13 +31,13 @@
         <h1 class="cover-heading" style="color: #024cd8!important;">&nbsp;Find your place for NoLimitTrip!</h1>
     </div>
     <br />
-    <form>
+    <form method="post" action="@Url.Action("RenderVenues", "Venues")">
         <div class="row">
             <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Localization">
+                <input type="text" class="form-control" placeholder="Localization" name="city">
             </div>
             <div class="col-md-3">
-                <select class="form-control">
+                <select class="form-control" name="typeOfDisablity">
                     <option value="0">(venue type)</option>
                     @foreach (CommonLibrary.Database.Type item in ViewBag.types)
                     {
@@ -46,7 +46,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <select class="form-control">
+                <select class="form-control" name="type">
                     <option value="0">(disability)</option>
                     @foreach (CommonLibrary.Database.Disability item in ViewBag.disabilities)
                     {
