@@ -37,9 +37,9 @@ namespace Hackaton_app.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(string email, string password, string confirmPassword)
+        public ActionResult Register(string email, string password, string confirmPassword, string firstname, string lastname)
         {
-            var result = CommonLibrary.Logic.User.Register(email, password, confirmPassword);
+            var result = CommonLibrary.Logic.User.Register(email, password, confirmPassword, firstname, lastname);
             TempData["message"] = result;
             if (result.Success)
                 return RedirectToAction("Index", "Home");
