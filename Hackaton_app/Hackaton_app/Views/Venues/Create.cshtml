@@ -3,7 +3,7 @@
 }
 
 <style>
-      /* Always set the map height explicitly to define the size of the div
+    /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
     #map {
         margin-top: 1%;
@@ -15,6 +15,7 @@
         margin: 0;
         padding: 0;
     }
+
     .controls {
         background-color: #fff;
         border-radius: 2px;
@@ -33,91 +34,119 @@
         width: 400px;
     }
 
-    .controls:focus {
-        border-color: #4d90fe;
-    }
+        .controls:focus {
+            border-color: #4d90fe;
+        }
+
     .title {
         font-weight: bold;
     }
+
     #infowindow-content {
         display: none;
     }
+
     #map #infowindow-content {
         display: inline;
     }
 
+    /* JARKOWE */
+    .city-image {
+        background: url(/Content/Images/globe-691770_1280.jpg) no-repeat top center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 80vh;
+        width: 100%;
+        padding-top: 40px;
+    }
+
+    .login-bar {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .w-x {
+        width: 30% !important;
+    }
 </style>
 
-<div class="row">
-    <div class="col-md-10 mx-auto">
-        <div class="card">
-            <div class="card-header">
-                <h3>Add venue</h3>
-            </div>
-            <div class="card-block">
-                <form method="post" action="@Url.Action("", "")">
-                    <div class="input-group">
-                        <span class="input-group-addon" style="width: 30%">Venue name</span>
-                        <input type="text" class="form-control" required placeholder="Venue name">
-                    </div>
-                    <div class="input-group" style="margin-top: 5px;">
-                        <span class="input-group-addon" style="width: 30%">Venue type</span>
-                        <select class="form-control">
-                            <option value="one">One</option>
-                            <option value="two">Two</option>
-                            <option value="three">Three</option>
-                            <option value="four">Four</option>
-                            <option value="five">Five</option>
-                        </select>
-                    </div>
-                    <div class="input-group" style="margin-top: 5px;">
-                        <span class="input-group-addon" style="width: 30%">Description</span>
-                        <textarea class="form-control" rows="5" placeholder="Description"></textarea>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-7">
-                            <input type="hidden" name="MapPlaceId" id="MapPlaceId" value="" />
-                            <div class="input-group" style="margin-top: 5px;">
-                                <span class="input-group-addon disabled" style="width: 52.5%">Country name</span>
-                                <input type="text" class="form-control" required id="country" placeholder="Country name">
+
+<div class="city-image">
+    <div class="row">
+        <div class="col-md-7 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Add venue</h3>
+                </div>
+                <div class="card-block">
+                    <form method="post" action="@Url.Action("", "")">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width: 30%">Venue name</span>
+                            <input type="text" class="form-control" required placeholder="Venue name">
+                        </div>
+
+                        <div class="input-group" style="margin-top: 5px;">
+                            <span class="input-group-addon" style="width: 30%">Description</span>
+                            <textarea class="form-control" rows="5" placeholder="Description"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-7">
+                                <input type="hidden" name="MapPlaceId" id="MapPlaceId" value="" />
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon" style="width: 52.5%">Venue type</span>
+                                    <select class="form-control">
+                                        <option value="one">One</option>
+                                        <option value="two">Two</option>
+                                        <option value="three">Three</option>
+                                        <option value="four">Four</option>
+                                        <option value="five">Five</option>
+                                    </select>
+                                </div>
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon disabled" style="width: 52.5%">Country name</span>
+                                    <input type="text" class="form-control" required id="country" placeholder="Country name">
+                                </div>
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon" style="width: 52.5%">City name</span>
+                                    <input type="text" class="form-control" required id="city" placeholder="City name">
+                                </div>
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon" style="width: 52.5%">Street name</span>
+                                    <input type="text" class="form-control" required id="street" placeholder="Street name">
+                                </div>
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon" style="width: 52.5%">Phone number</span>
+                                    <input type="text" class="form-control" required placeholder="Phone number">
+                                </div>
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon" style="width: 52.5%">Email</span>
+                                    <input type="text" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon" style="width: 52.5%">Facebook page link</span>
+                                    <input type="text" class="form-control" placeholder="Facebook page link">
+                                </div>
                             </div>
-                            <div class="input-group" style="margin-top: 5px;">
-                                <span class="input-group-addon" style="width: 52.5%">City name</span>
-                                <input type="text" class="form-control" required id="city" placeholder="City name">
-                            </div>
-                            <div class="input-group" style="margin-top: 5px;">
-                                <span class="input-group-addon" style="width: 52.5%">Street name</span>
-                                <input type="text" class="form-control" required id="street" placeholder="Street name">
-                            </div>
-                            <div class="input-group" style="margin-top: 5px;">
-                                <span class="input-group-addon" style="width: 52.5%">Phone number</span>
-                                <input type="text" class="form-control" required placeholder="Phone number">
-                            </div>
-                            <div class="input-group" style="margin-top: 5px;">
-                                <span class="input-group-addon" style="width: 52.5%">Email</span>
-                                <input type="text" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="input-group" style="margin-top: 5px;">
-                                <span class="input-group-addon" style="width: 52.5%">Facebook page link</span>
-                                <input type="text" class="form-control" placeholder="Facebook page link">
+                            <div class="col-md-5">
+                                <div id="map"></div>
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <div id="map"></div>
+                        <div class="input-group" style="margin-top: 5px;">
+                            <span class="input-group-addon" style="width: 30%">Description</span>
+                            File upload here with preview
                         </div>
-                    </div>
-                    <div class="input-group" style="margin-top: 5px;">
-                        <span class="input-group-addon" style="width: 30%">Description</span>
-                        File upload here with preview
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button style="margin-top: 5px;" type="button" class="btn btn-success float-right">Add venue</button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button style="margin-top: 5px;" type="button" class="btn btn-success float-right">Add venue</button>
+                            </div>
                         </div>
-                    </div>
-                    <hr />
-                </form>
+                        <hr />
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -125,11 +154,11 @@
 <script>
     var map;
     var markers = [];
-    
+
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 8,
-            center: {lat: -34.397, lng: 150.644}
+            center: { lat: -34.397, lng: 150.644 }
         });
         var geocoder = new google.maps.Geocoder();
 
@@ -143,10 +172,10 @@
             markers[i].setMap(null);
         }
         var address = $('#street').val() + ", " + $('#city').val() + ", " + $('#country').val(); /*document.getElementById('address').value;*/
-        geocoder.geocode({'address': address}, function(results, status) {
+        geocoder.geocode({ 'address': address }, function (results, status) {
             if (status === 'OK') {
                 console.log('ok');
-                
+
                 resultsMap.setCenter(results[0].geometry.location);
                 $('#MapPlaceId').val(results[0].place_id);
                 var marker = new google.maps.Marker({
@@ -162,7 +191,7 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiVLgf0alMQLko1rbpODHX1FkO5RnWy4c&libraries=places&callback=initMap&language=en"
         async defer></script>
-        
+
 
 
 

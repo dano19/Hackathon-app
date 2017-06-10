@@ -149,8 +149,14 @@
     <Content Include="Content\hotels\resort-918952_1280.jpg" />
     <Content Include="Content\hotels\StockSnap_904EAD50B0.jpg" />
     <Content Include="Content\hotels\water-165219_1280.jpg" />
+    <Content Include="Content\Images\gdansk-havneområdet.jpg" />
     <Content Include="Content\Images\Gdansk.jpg" />
+    <Content Include="Content\Images\gdansk_w003.jpg" />
+    <Content Include="Content\Images\globe-691770_1280.jpg" />
     <Content Include="Content\Images\NLT1-2.png" />
+    <Content Include="Content\Images\tapeta-widok-z-bramy-na-ulice-dluga-w-gdansku.jpg" />
+    <Content Include="Content\Images\wynajem_aut_gdansk.jpg" />
+    <Content Include="Content\Images\z16665441IER,Z-zewnatrz-to-awangardowa--ciemna-bryla--Wnetrze-t.jpg" />
     <Content Include="Content\listview.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
