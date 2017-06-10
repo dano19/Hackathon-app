@@ -12,7 +12,13 @@ namespace Hackaton_app.Controllers
     {
         public ActionResult RenderVenues()
         {
+            return View("Create");
+        }
+        [HttpPost]
+        public ActionResult RenderVenues(String city, int typeOfDisablity, int type) {
             var venues = Venue.GetList();
+            FilterVenues(venues,city, typeOfDisablity, type);
+
             foreach (var venue in venues)
             {
                 venue.MediaList = Media.GetList(venue.Id);
@@ -21,6 +27,21 @@ namespace Hackaton_app.Controllers
             return View("Venues", venues);
         }
         
+        private void FilterVenues(List<CommonLibrary.Database.Venue> venuesToFilter, String city, int typeOfDisability, int type) {
+            if (city != null) {
+                venuesToFilter = venuesToFilter.Where(x => x.AddressCity.Equals(city)).ToList();
+            }
+            if (typeOfDisability > 0) {
+                venuesToFilter = venuesToFilter.Where(x => x.VenueDisabilties.Equals(typeOfDisability)).ToList();
+            }
+            if (type > 0) {
+                venuesToFilter = venuesToFilter.Where(x => x.Type.Equals(type)).ToList();
+            }
+
+
+        }
+
+
         #region Create
         [HttpGet]
         public ActionResult Create()
