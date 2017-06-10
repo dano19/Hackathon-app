@@ -32,20 +32,22 @@ namespace CommonLibrary.Logic
             
         }
 
-        public static StatusResult Create(string Name)
+        public static StatusResult Create(int valueId, int disability,int level)
         {
             using (var db = new DatabaseContent())
             {
                 var venueDisability = new Database.Venue_disability()
                 {
-
-                    
+                    VenueId = valueId,
+                    Disability = disability,
+                    Level = level
                 };
                 db.VenueDisabilities.Add(venueDisability);
                 db.SaveChanges();
                 return new StatusResult() { Message = "Venue has been added!", Success = true, ReturnId = venueDisability.Id };
             }
         }
+
 
 
 
