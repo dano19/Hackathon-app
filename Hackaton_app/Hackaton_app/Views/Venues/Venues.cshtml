@@ -1,5 +1,7 @@
 ﻿@model List<CommonLibrary.Database.Venue>
-
+@{
+    ViewBag.Title = "Search results";
+}
 
 
 
@@ -53,7 +55,7 @@
     <div class="container my-container">
         <div class="row">
             <div>
-                <h2 class="cover-heading" style="color: #024cd8!important;">Selected places</h2>
+                <h2 class="cover-heading t2s" style="color: #024cd8!important;">Selected places</h2>
                 <hr />
             </div>
 
@@ -65,8 +67,8 @@
 
                         <img src="~/Content/hotels/@(item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)) == null ?"":item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)).Location)" alt="">
 
-                        <h4><a href="@Url.Action("Details", "Venues", new { id =item.Id })">@item.Name</a></h4>
-                        <p>
+                        <h4><a href="@Url.Action("Details", "Venues", new { id =item.Id })" class="t2s">@item.Name</a></h4>
+                        <p class="t2s">
                             @item.AddressStreet, @item.AddressCity
                         </p>
 
@@ -90,7 +92,9 @@
                             }
                         </div>
                         <hr />
-                        @item.Description
+                        <div class="t2s">
+                            @item.Description
+                        </div>
 
                           <!--
                         foreach (var disabilities in item.VenueDisabilties)
