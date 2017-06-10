@@ -45,11 +45,9 @@ namespace CommonLibrary.Logic
                 return new StatusResult() { Message = "Venue has been added!", Success = true, ReturnId = venue.Id };
             }
         }
+
     }
 
-        public static List<Database.Venue> GetListByCity(String city) {
-            using (var db = new DatabaseContent())
-                return db.Venues.Where(x => x.AddressCity.Equals(city)).ToList();
-        }
-    }
+       
 }
+
