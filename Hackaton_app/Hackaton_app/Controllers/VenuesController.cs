@@ -17,7 +17,7 @@ namespace Hackaton_app.Controllers
         [HttpPost]
         public ActionResult RenderVenues(String city, int typeOfDisablity, int type) {
             var venues = Venue.GetList();
-            FilterVenues(venues,city, typeOfDisablity, type);
+            venues = FilterVenues(venues,city, typeOfDisablity, type);
 
             foreach (var venue in venues)
             {
@@ -27,9 +27,9 @@ namespace Hackaton_app.Controllers
             return View("Venues", venues);
         }
         
-        private void FilterVenues(List<CommonLibrary.Database.Venue> venuesToFilter, String city, int typeOfDisability, int type) {
+        private List<CommonLibrary.Database.Venue> FilterVenues(List<CommonLibrary.Database.Venue> venuesToFilter, String city, int typeOfDisability, int type) {
             if (city != null) {
-                venuesToFilter = venuesToFilter.Where(x => x.AddressCity.Equals(city)).ToList();
+                venuesToFilter = venuesToFilter.Where(x => x.AddressCity.ToUpper().Equals(city.ToUpper())).ToList();
             }
             if (typeOfDisability > 0) {
                 venuesToFilter = venuesToFilter.Where(x => x.VenueDisabilties.Equals(typeOfDisability)).ToList();
@@ -37,7 +37,7 @@ namespace Hackaton_app.Controllers
             if (type > 0) {
                 venuesToFilter = venuesToFilter.Where(x => x.Type.Equals(type)).ToList();
             }
-
+            return venuesToFilter;
 
         }
 
