@@ -1,6 +1,6 @@
 ﻿@model List<CommonLibrary.Database.Type>
 @{
-               ViewBag.Title = "Add venue";
+    ViewBag.Title = "Add venue";
 }
 
 <style>
@@ -95,12 +95,58 @@
                             <textarea name="description" class="form-control" rows="5" placeholder="Description"></textarea>
                         </div>
 
+                        <div class="input-group" style="margin-top: 5px;">
+                            <span class="input-group-addon" style="width: 10%">Mobility:</span>
+                            <select class="form-control" name="type">
+                                <option value="0">(select)</option>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            &nbsp;
+                            <span class="input-group-addon" style="width: 10%">Blind:</span>
+                            <select class="form-control" name="type">
+                                <option value="0">(select)</option>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            &nbsp;
+                            <span class="input-group-addon" style="width: 10%">Deaf:</span>
+                            <select class="form-control" name="type">
+                                <option value="0">(select)</option>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            &nbsp;
+                            <span class="input-group-addon" style="width: 10%">Diabetic:</span>
+                            <select class="form-control" name="type">
+                                <option value="0">(select)</option>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+
+
+
+
+
+                        </div>
+
+
+
                         <div class="row">
                             <div class="col-md-7">
                                 <input type="hidden" name="mapsPlaceId" id="MapPlaceId" value="" />
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon" style="width: 52.5%">Venue type</span>
                                     <select class="form-control" name="type">
+                                        <option value="0">(select)</option>
                                         @foreach (var item in Model)
                                         {
                                             <option value="@item.Id">@item.Name</option>

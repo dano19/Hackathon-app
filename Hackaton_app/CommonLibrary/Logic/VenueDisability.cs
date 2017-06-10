@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonLibrary.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,15 +24,31 @@ namespace CommonLibrary.Logic
                                 Disability = vd.Disability,
                                 Level = vd.Level,
                                 DisabilityDescription = dd.Description,
-                                LevelDisabilityDescription = ld.Description                               
+                                LevelDisabilityDescription = ld.Description,
+                                UrlToIcon = ld.UrlToImage                                
                             }).ToList();
                 return list;
             }
             
         }
-     
-        
-    
+
+        public static StatusResult Create(string Name)
+        {
+            using (var db = new DatabaseContent())
+            {
+                var venueDisability = new Database.Venue_disability()
+                {
+
+                    
+                };
+                db.VenueDisabilities.Add(venueDisability);
+                db.SaveChanges();
+                return new StatusResult() { Message = "Venue has been added!", Success = true, ReturnId = venueDisability.Id };
+            }
+        }
+
+
+
     }
 
    

@@ -12,6 +12,7 @@
     <div>
     <div class="container">
         <div class="row">
+         
             <h2>Lsit of places</h2>
          
             <hr>
@@ -26,14 +27,32 @@
             <p>
                 @item.AddressStreet
             </p>
-          
+            
             <div class="row">
-                <div class="col-md-6">Disability description </div>
-                <div class="col-md-6">Level of helping</div>
+                @foreach (var disabilities in item.VenueDisabilties)
+                {
+                    <img src="~/Content/Images/@(disabilities.UrlToIcon)" style="width: 40px; height: 40px;  " class="img-pophover" data-toggle="popover_mobi"   alt="" />
+                      <script type="text/javascript">
+                            $(document).ready(function () {
+                            $('[data-toggle="popover_mobi"]').popover({
+                             trigger: 'hover',
+                            html: true,
+                            content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">@disabilities.Level</h4><p>@disabilities.LevelDisabilityDescription</p></div></div>'
+                        });           
+                });
+            </script>
+                    
+                }
             </div>
+
+          
+
             @foreach (var disabilities in item.VenueDisabilties)
             {
+
+                
                 <div class="row">
+                    
                     <div class="col-md-6">
                         <p>@disabilities.DisabilityDescription</p>
                     </div>
