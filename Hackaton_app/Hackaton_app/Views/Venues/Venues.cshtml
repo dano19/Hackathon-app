@@ -12,6 +12,46 @@
     <div>
     <div class="container">
         <div class="row">
+            <a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
+
+            <!-- Generated markup by the plugin -->
+            <div class="tooltip tooltip-top" role="tooltip">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner">
+                    Some tooltip text!
+                </div>
+            </div>
+            <img src="~/Content/Images/mobi-green.png"  data-toggle="popover_mobi" data-placement="top" />
+            <img src="~/Content/Images/blind-green.png" data-toggle="popover_blind" data-placement="top" />
+            <img src="~/Content/Images/deaf-red.png" data-toggle="popover_deaf" data-placement="top" />
+            <img src="~/Content/Images/diabetic-yello.png"  data-toggle="popover_diabetic" data-placement="top" />
+            <img src="~/Content/Images/diabetic-yello.png"  class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+                Tooltip with HTML
+            </img>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('[data-toggle="popover_mobi"]').popover({
+                        trigger: 'hover',
+                        html: true,
+                        content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">MOBILITY</h4><p>Excellent support for people with mobility issues</p></div></div>'
+                    });
+                    $('[data-toggle="popover_blind"]').popover({
+                        trigger: 'hover',
+                        html: true,
+                        content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">BLIND</h4><p>Excellent support for blind people</p></div></div>'
+                    });
+                    $('[data-toggle="popover_deaf"]').popover({
+                        trigger: 'hover',
+                        html: true,
+                        content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">DEAF</h4><p>No support for blind people</p></div></div>'
+                    });
+                    $('[data-toggle="popover_diabetic"]').popover({
+                        trigger: 'hover',
+                        html: true,
+                        content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">DIABETIC</h4><p>Diabetics are supported partially</p></div></div>'
+                    });
+                });
+            </script>
             <h2>Lsit of places</h2>
          
             <hr>
@@ -26,14 +66,32 @@
             <p>
                 @item.AddressStreet
             </p>
-          
+            
             <div class="row">
-                <div class="col-md-6">Disability description </div>
-                <div class="col-md-6">Level of helping</div>
+                @foreach (var disabilities in item.VenueDisabilties)
+                {
+                    <img src="~/Content/Images/@(disabilities.UrlToIcon)" style="width: 40px; height: 40px;  " class="img-pophover" data-toggle="popover_mobi"   alt="" />
+                      <script type="text/javascript">
+                            $(document).ready(function () {
+                            $('[data-toggle="popover_mobi"]').popover({
+                             trigger: 'hover',
+                            html: true,
+                            content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">@disabilities.Level</h4><p>@disabilities.LevelDisabilityDescription</p></div></div>'
+                        });           
+                });
+            </script>
+                    
+                }
             </div>
+
+          
+
             @foreach (var disabilities in item.VenueDisabilties)
             {
+
+                
                 <div class="row">
+                    
                     <div class="col-md-6">
                         <p>@disabilities.DisabilityDescription</p>
                     </div>

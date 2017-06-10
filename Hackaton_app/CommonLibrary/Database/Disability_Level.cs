@@ -18,5 +18,7 @@ namespace CommonLibrary.Database
         public int Level { get; set; }
         [Column("DESCRIPTION")]
         public string Description { get; set; }
+        [Column("URL")]
+        public string UrlToImage { get; set; }
     }
 }
