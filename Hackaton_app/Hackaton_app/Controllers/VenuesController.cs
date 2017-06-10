@@ -46,12 +46,42 @@ namespace Hackaton_app.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View(CommonLibrary.Logic.Type.GetList());
+            VenuesView venuesView = new VenuesView
+            {
+                listOfType = CommonLibrary.Logic.Type.GetList(),
+                venueVisibility = CommonLibrary.Logic.DisabilityLevel.GetList()
+
+            };
+
+            return View(venuesView);
         }
         [HttpPost]
-        public ActionResult Create(string name, int type, string description, string country, string city, string street, string phone, string email, string website, string facebook, string mapsPlaceId, HttpPostedFileBase[] files)
+        public ActionResult Create(string name, int type, string description, string country, string city, string street, string phone, string email, string website, string facebook, string mapsPlaceId, int mobility, int blind,int deaf,int diabetic, HttpPostedFileBase[] files)
         {
             var result = Venue.Create(name, type, description, country, city, street, phone, email, facebook, website, mapsPlaceId);
+
+            if(mobility != 0)
+            {
+                var resMobility = VenueDisability.Create(result.ReturnId, 1, mobility);
+            }
+
+            if(blind != 0)
+            {
+                var resBlind = VenueDisability.Create(result.ReturnId, 4, blind);
+            }
+
+            if(deaf != 0)
+            {
+                var resDeaf = VenueDisability.Create(result.ReturnId, 5, deaf);
+            }
+
+            if(diabetic !=0)
+            {
+                var resDiabetic = VenueDisability.Create(result.ReturnId, 6, deaf);
+            }
+
+
+
             TempData["message"] = result;
             if (result.Success)
             {
