@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonLibrary.Utility;
 
 namespace CommonLibrary.Logic
 {
@@ -18,6 +19,17 @@ namespace CommonLibrary.Logic
         {
             using (var db = new DatabaseContent())
                 return db.Medias.Where(x => x.VenueId.Equals(venueId)).ToList();
+        }
+
+        public static StatusResult SaveToDatabase(int venueId, string location)
+        {
+            using (var db = new DatabaseContent())
+            {
+                var hasDefault = db.Medias.Count(x => x.VenueId == venueId && x.IsDefault);
+                db.Medias.Add(new Database.Media() { Description = "", IsDefault = hasDefault == 0, Location = location, VenueId = venueId });
+                db.SaveChanges();
+                return new StatusResult(){ Success = true };
+            }
         }
     }
 }

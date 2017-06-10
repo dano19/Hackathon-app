@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Add";
+﻿@model List<CommonLibrary.Database.Type>
+@{
+               ViewBag.Title = "Add venue";
 }
 
 <style>
@@ -83,53 +84,56 @@
                     <h3>Add venue</h3>
                 </div>
                 <div class="card-block">
-                    <form method="post" action="@Url.Action("", "")">
+                    <form method="post" action="@Url.Action("Create", "Venues")" enctype="multipart/form-data">
                         <div class="input-group">
                             <span class="input-group-addon" style="width: 30%">Venue name</span>
-                            <input type="text" class="form-control" required placeholder="Venue name">
+                            <input name="name" type="text" class="form-control" required placeholder="Venue name">
                         </div>
 
                         <div class="input-group" style="margin-top: 5px;">
                             <span class="input-group-addon" style="width: 30%">Description</span>
-                            <textarea class="form-control" rows="5" placeholder="Description"></textarea>
+                            <textarea name="description" class="form-control" rows="5" placeholder="Description"></textarea>
                         </div>
 
                         <div class="row">
                             <div class="col-md-7">
-                                <input type="hidden" name="MapPlaceId" id="MapPlaceId" value="" />
+                                <input type="hidden" name="mapsPlaceId" id="MapPlaceId" value="" />
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon" style="width: 52.5%">Venue type</span>
-                                    <select class="form-control">
-                                        <option value="one">One</option>
-                                        <option value="two">Two</option>
-                                        <option value="three">Three</option>
-                                        <option value="four">Four</option>
-                                        <option value="five">Five</option>
+                                    <select class="form-control" name="type">
+                                        @foreach (var item in Model)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
                                     </select>
                                 </div>
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon disabled" style="width: 52.5%">Country name</span>
-                                    <input type="text" class="form-control" required id="country" placeholder="Country name">
+                                    <input name="country" type="text" class="form-control" required id="country" placeholder="Country name">
                                 </div>
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon" style="width: 52.5%">City name</span>
-                                    <input type="text" class="form-control" required id="city" placeholder="City name">
+                                    <input name="city" type="text" class="form-control" required id="city" placeholder="City name">
                                 </div>
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon" style="width: 52.5%">Street name</span>
-                                    <input type="text" class="form-control" required id="street" placeholder="Street name">
+                                    <input name="street" type="text" class="form-control" required id="street" placeholder="Street name">
                                 </div>
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon" style="width: 52.5%">Phone number</span>
-                                    <input type="text" class="form-control" required placeholder="Phone number">
+                                    <input name="phone" type="text" class="form-control" required placeholder="Phone number">
                                 </div>
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon" style="width: 52.5%">Email</span>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input name="email" type="text" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="input-group" style="margin-top: 5px;">
+                                    <span class="input-group-addon" style="width: 52.5%">Website link</span>
+                                    <input name="website" type="text" class="form-control" placeholder="Website link">
                                 </div>
                                 <div class="input-group" style="margin-top: 5px;">
                                     <span class="input-group-addon" style="width: 52.5%">Facebook page link</span>
-                                    <input type="text" class="form-control" placeholder="Facebook page link">
+                                    <input name="facebook" type="text" class="form-control" placeholder="Facebook page link">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -137,12 +141,12 @@
                             </div>
                         </div>
                         <div class="input-group" style="margin-top: 5px;">
-                            <span class="input-group-addon" style="width: 30%">Description</span>
-                            File upload here with preview
+                            <span class="input-group-addon" style="width: 30%">Images</span>
+                            <input type="file" multiple="multiple" class="form-control" name="files" placeholder="Images">
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button style="margin-top: 5px;" type="button" class="btn btn-success float-right">Add venue</button>
+                                <button style="margin-top: 5px;" type="submit" class="btn btn-success float-right">Add new venue</button>
                             </div>
                         </div>
                         <hr />

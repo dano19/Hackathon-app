@@ -46,6 +46,6 @@ namespace CommonLibrary.Database
         public List<Database.Media> MediaList = new List<Media>();
 
         [NotMapped]
-        public List<Database.Venue_disability> VenueDisabilties = new List<Venue_disability>();
+        public List<DTO.VenueDisabilityDTO> VenueDisabilties = new List<DTO.VenueDisabilityDTO>();
     }
 }

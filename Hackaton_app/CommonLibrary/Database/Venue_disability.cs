@@ -18,5 +18,11 @@ namespace CommonLibrary.Database
         public int Disability { get; set; }
         [Column("LEVEL")]
         public int Level { get; set; }
+
+        [NotMapped]
+        public String DisabilityDescription { get; set; }
+
+        [NotMapped]
+        public String LevelDisabilityDescription { get; set; }
     }
 }
