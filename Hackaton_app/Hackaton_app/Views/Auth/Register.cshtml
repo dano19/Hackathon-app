@@ -2,13 +2,36 @@
     ViewBag.Title = "Register";
 }
 
-<div class="row">
-    <div class="col-md-6 mx-auto">
-        <div class="card">
+<style>
+    .city-image {
+        background: url(/Content/hotels/building-768505_1280.jpg) no-repeat top center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 80vh;
+        width: 100%;
+        padding-top: 200px;
+    }
+
+    .login-bar {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .w-x {
+        width: 30% !important;
+    }
+</style>
+<div class="city-image">
+    <div class="row">
+
+        <div class="card w-x login-bar">
             <div class="card-header">
                 <h3>Register</h3>
             </div>
-            <div class="card-block">
+            <div class="card-block ">
                 <form method="post" id="myForm" action="@Url.Action("Register", "Auth")">
                     <div id='err_message' class='text-center alert alert-danger' style='color:red;margin-bottom: 20px; display: none;'>Passwords needs to match.</div>
                     <div class="input-group">
@@ -31,28 +54,31 @@
                     </div>
                     <hr />
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" >
+                            <a href="@Url.Action("Login", "Auth")" class="btn btn-info">Login to Venue account</a>
+                        </div>
+                        <div class="col-md-6" style="text-align: right;">
                             <a href="@Url.Action("ForgotPassword", "Auth")" class="btn btn-info">Forgot your password?</a>
                         </div>
-                        <div class="col-md-6">
-                            <a href="@Url.Action("Login", "Auth")" class="btn btn-info">Login to Travel account</a>
-                        </div>
+
                     </div>
 
                 </form>
             </div>
         </div>
+
     </div>
 </div>
-<script src="~/Scripts/jquery-3.1.1.js"></script>
-<script>
-    $("#myForm").submit(function (event) {
-        $("#err_message").hide();
-        event.preventDefault(); // cancel default behavior
-        if ($('#password').val() != $('#passwordConfirm').val()) {
-            $("#err_message").show();
-        } else {
-            $(this).submit();
-        }
-    });
-</script>
+
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $("#myForm").submit(function (event) {
+            $("#err_message").hide();
+            event.preventDefault(); // cancel default behavior
+            if ($('#password').val() != $('#passwordConfirm').val()) {
+                $("#err_message").show();
+            } else {
+                $(this).submit();
+            }
+        });
+    </script>

@@ -27,6 +27,7 @@ namespace CommonLibrary
         public DbSet<Database.Media> Medias { get; set; }
         public DbSet<Database.Disability> Disabilities { get; set; }
         public DbSet<Database.Type> Types { get; set; }
+        public DbSet<Database.Venue_disability> VenueDisabilities { get; set; }
 
     }
 

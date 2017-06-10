@@ -16,15 +16,21 @@ namespace Hackaton_app.Controllers
         }
 
         public ActionResult RenderVenues() {
-
-            Dictionary<CommonLibrary.Database.Venue, CommonLibrary.Database.Media> venueAndMainPicturePair = new Dictionary<CommonLibrary.Database.Venue, CommonLibrary.Database.Media>();
-            foreach (CommonLibrary.Database.Venue venue in Venue.GetList()) {
-                venueAndMainPicturePair.Add(venue, Media.GetDefaultPictureByVenueId(venue.Id));
+            var venues = Venue.GetList();
+            foreach (var venue in venues) {
+                venue.MediaList = Media.GetList(venue.Id);
+                venue.VenueDisabilties = VenueDisability.GetList(venue.Id);
             }
-         
-      
-            return View("Venues", venueAndMainPicturePair);
+
+            return View("Venues", venues);
+            }
+
+        public ActionResult Details()
+        {
+
+            return View("Details");
         }
+
 
         #region Create
         [HttpGet]
