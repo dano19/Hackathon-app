@@ -55,7 +55,7 @@
     
     function ReadText(_text) {
         audioElement.pause();
-        audioElement.setAttribute('src', '@(Request.Url.Host.ToString())@(Request.Url.ToString().Contains("localhost") ? Request.Url.Port.ToString() : "")/home/Text2Speech?text=' + _text);
+        audioElement.setAttribute('src', 'http://hackathon.vpopstudio.eu/home/Text2Speech?text=' + _text);
         audioElement.play();
     }
     $(document).ready(function () {
