@@ -46,10 +46,4 @@ namespace CommonLibrary.Logic
             }
         }
     }
-
-        public static List<Database.Venue> GetListByCity(String city) {
-            using (var db = new DatabaseContent())
-                return db.Venues.Where(x => x.AddressCity.Equals(city)).ToList();
-        }
-    }
 }

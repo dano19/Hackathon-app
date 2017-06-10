@@ -70,7 +70,9 @@ namespace Hackaton_app.Controllers
         
         public ActionResult Details(int id)
         {
-            return View("Details");
+            var venue = Venue.GetById(id);
+            venue.MediaList = Media.GetList(venue.Id);
+            return View("Details", venue);
         }
 
     }
