@@ -9,6 +9,7 @@ single_column_breakpoint: 700
 });
 
 /*
+
 Ref:
 Thanks to:
 http://www.jqueryscript.net/layout/Simple-jQuery-Plugin-To-Create-Pinterest-Style-Grid-Layout-Pinterest-Grid.html

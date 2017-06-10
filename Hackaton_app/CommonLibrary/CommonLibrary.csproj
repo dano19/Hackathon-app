@@ -68,9 +68,11 @@
     <Compile Include="DTO\VenueDisabilityDTO.cs" />
     <Compile Include="Logic\Comment.cs" />
     <Compile Include="Logic\Disability.cs" />
+    <Compile Include="Logic\DisabilityLevel.cs" />
     <Compile Include="Logic\Media.cs" />
     <Compile Include="Logic\Type.cs" />
     <Compile Include="Logic\VenueDisability.cs" />
+    <Compile Include="Logic\VenuesView.cs" />
     <Compile Include="Utility\Security.cs" />
     <Compile Include="Utility\StatusResult.cs" />
     <Compile Include="Logic\User.cs" />

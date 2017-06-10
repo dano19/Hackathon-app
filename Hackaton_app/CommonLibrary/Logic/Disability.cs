@@ -13,5 +13,9 @@ namespace CommonLibrary.Logic
             using (var db = new DatabaseContent())
                 return db.Disabilities.ToList();
         }
+
+
+   
+
     }
 }
