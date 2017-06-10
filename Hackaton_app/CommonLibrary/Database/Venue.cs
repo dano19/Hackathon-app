@@ -47,5 +47,7 @@ namespace CommonLibrary.Database
 
         [NotMapped]
         public List<DTO.VenueDisabilityDTO> VenueDisabilties = new List<DTO.VenueDisabilityDTO>();
+        [NotMapped]
+        public List<Database.Comment> Comments = new List<Comment>();
     }
 }

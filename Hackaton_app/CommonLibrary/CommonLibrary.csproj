@@ -66,6 +66,7 @@
     <Compile Include="Database\Venue.cs" />
     <Compile Include="Database\Venue_disability.cs" />
     <Compile Include="DTO\VenueDisabilityDTO.cs" />
+    <Compile Include="Logic\Comment.cs" />
     <Compile Include="Logic\Disability.cs" />
     <Compile Include="Logic\Media.cs" />
     <Compile Include="Logic\Type.cs" />
