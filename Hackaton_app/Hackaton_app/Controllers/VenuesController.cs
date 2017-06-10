@@ -24,6 +24,13 @@ namespace Hackaton_app.Controllers
             return View("Venues", venues);
             }
 
+        public ActionResult Details()
+        {
+
+            return View("Details");
+        }
+
+
         #region Create
         [HttpGet]
         public ActionResult Create()
