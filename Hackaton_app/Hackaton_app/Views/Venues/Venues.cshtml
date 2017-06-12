@@ -1,15 +1,12 @@
 ﻿@model List<CommonLibrary.Database.Venue>
 
 
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
 
 }
-
 <style>
     .city-image {
         /*background: url(/Content/Images/city1.jpg);
@@ -43,11 +40,7 @@
         border: 1px solid transparent;
         border-radius: 0.25rem;
     }
-    
-
-
 </style>
-
 
 <div class="city-image">
     <div class="container my-container">
@@ -57,78 +50,77 @@
                 <hr />
             </div>
 
-
             <section id="pinBoot">
                 @foreach (var item in Model)
                 {
                     <article class="white-panel">
-
                         <img src="~/Content/hotels/@(item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)) == null ?"":item.MediaList.FirstOrDefault(x => x.IsDefault.Equals(true)).Location)" alt="">
-
                         <h4><a href="@Url.Action("Details", "Venues", new { id =item.Id })">@item.Name</a></h4>
                         <p>
                             @item.AddressStreet, @item.AddressCity
                         </p>
-
-                     
 
 
                         <div class="">
                             @foreach (var disabilities in item.VenueDisabilties)
                 {
                                 <img src="~/Content/Images/@(disabilities.UrlToIcon)" class="img-pophover" data-toggle="popover_mobi" data-placement="top" alt="" />
-                                <script type="text/javascript">
-                            $(document).ready(function () {
-                            $('[data-toggle="popover_mobi"]').popover({
-                             trigger: 'hover',
-                            html: true,
-                            content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">@disabilities.Level</h4><p>@disabilities.LevelDisabilityDescription</p></div></div>'
-                        });
-                });
-                                </script>
+                                @*<script type="text/javascript">
+                                    $(document).ready(function () {
+                                        $('[data-toggle="popover_mobi"]').popover({
+                                            trigger: 'hover',
+                                            html: true,
+                                            content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">@disabilities.Level</h4><p>@disabilities.LevelDisabilityDescription</p></div></div>'
+                                        });
+                                    });
+                                </script>*@
 
                             }
                         </div>
                         <hr />
                         @item.Description
+                        <!--
+                                               foreach (var disabilities in item.VenueDisabilties)
+                                               {
 
-                          <!--
-                        foreach (var disabilities in item.VenueDisabilties)
-                        {
 
 
-                           
-                              
-                                <div class="col-md-6">
-                                    <p>disabilities.DisabilityDescription</p>
-                                </div>
-                                   
-                                
-                                    <p>disabilities.LevelDisabilityDescription</p>
-                                
-                         
-                        }
- -->
 
+                                                       <div class="col-md-6">
+                                                           <p>disabilities.DisabilityDescription</p>
+                                                       </div>
+
+
+                                                           <p>disabilities.LevelDisabilityDescription</p>
+
+
+                                               }
+                        -->
                     </article>
                 }
 
-
             </section>
-
             <hr>
-
         </div>
-
     </div>
 </div>
-
 <div>
     @Html.ActionLink("BACK", "Index", "Home")
 </div>
-
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
 
+
+
+@*<script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="popover_mobi"]').popover({
+                trigger: 'hover',
+                html: true,
+                content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">@disabilities.Level</h4><p>@disabilities.LevelDisabilityDescription</p></div></div>'
+            });
+        });
+    </script>*@
+
+
+}
 
