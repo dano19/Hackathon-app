@@ -66,7 +66,7 @@
     
     function ReadText(_text) {
         audioElement.pause();
-        audioElement.setAttribute('src', 'http://localhost:@(Request.Url.Port)/home/Text2Speech?text=' + _text);
+        audioElement.setAttribute('src', 'http://hackathon.vpopstudio.eu:@(Request.Url.Port)/home/Text2Speech?text=' + _text);
         audioElement.play();
     }
     $(document).ready(function () {
