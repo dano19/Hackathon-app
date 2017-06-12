@@ -64,7 +64,7 @@
                         <div class="">
                             @foreach (var disabilities in item.VenueDisabilties)
                 {
-                                <img src="~/Content/Images/@(disabilities.UrlToIcon)" class="img-pophover" data-toggle="popover_mobi" data-placement="top" alt="" />
+                                <img src="~/Content/Images/@(disabilities.UrlToIcon)" class="img-pophover" alt="" />
                                 @*<script type="text/javascript">
                                     $(document).ready(function () {
                                         $('[data-toggle="popover_mobi"]').popover({
@@ -107,20 +107,5 @@
 <div>
     @Html.ActionLink("BACK", "Index", "Home")
 </div>
-@section Scripts {
 
-
-
-@*<script type="text/javascript">
-        $(document).ready(function () {
-            $('[data-toggle="popover_mobi"]').popover({
-                trigger: 'hover',
-                html: true,
-                content: '<div class="media"><div class="media-body"></br><h4 class="media-heading">@disabilities.Level</h4><p>@disabilities.LevelDisabilityDescription</p></div></div>'
-            });
-        });
-    </script>*@
-
-
-}
 
