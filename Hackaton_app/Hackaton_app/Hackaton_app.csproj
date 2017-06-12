@@ -148,11 +148,15 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\hotels\1f16286091fd.jpg" />
     <Content Include="Content\hotels\37763a2dcc3a.jpg" />
+    <Content Include="Content\hotels\73d7d06dd93f.jpg" />
     <Content Include="Content\hotels\7b7aa480a8c89a696a185bc1a78bb6db.jpg" />
     <Content Include="Content\hotels\93ca6aa7e3d4.jpg" />
+    <Content Include="Content\hotels\bc2ba0f3d9bd.jpg" />
     <Content Include="Content\hotels\building-768505_1280.jpg" />
     <Content Include="Content\hotels\eceab83b8bc4.jpg" />
+    <Content Include="Content\hotels\f0958aedee1d.jpg" />
     <Content Include="Content\hotels\hotel-389256_1280.jpg" />
     <Content Include="Content\hotels\hotel-room-1447201_1280.jpg" />
     <Content Include="Content\hotels\resort-918952_1280.jpg" />
